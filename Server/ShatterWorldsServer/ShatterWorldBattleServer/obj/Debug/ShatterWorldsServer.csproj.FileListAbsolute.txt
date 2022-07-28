@@ -1,0 +1,10 @@
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\bin\Debug\ShatterWorldsServer.exe
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\bin\Debug\ShatterWorldsServer.pdb
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\bin\Debug\RiptideNetworking.dll
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\bin\Debug\RiptideNetworking.xml
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\obj\Debug\ShatterWorldsServer.csproj.AssemblyReference.cache
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\obj\Debug\ShatterWorldsServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\obj\Debug\ShatterWorldsServer.csproj.CoreCompileInputs.cache
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\obj\Debug\ShatterWorldsServer.csproj.CopyComplete
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\obj\Debug\ShatterWorldsServer.exe
+C:\Users\rocae\Projects\GameProjects\ShatterWorlds\Server\ShatterWorldsServer\ShatterWorldsServer\obj\Debug\ShatterWorldsServer.pdb
