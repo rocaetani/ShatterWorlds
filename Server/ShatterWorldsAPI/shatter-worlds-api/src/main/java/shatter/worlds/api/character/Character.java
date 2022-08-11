@@ -31,9 +31,6 @@ public class Character {
     @ManyToOne
     private BasicClass basicClass;
 
-    @ManyToOne
-    private PrestigeClass prestigeClass;
-
     private int level;
 
     private int experiencePoints;
@@ -42,12 +39,11 @@ public class Character {
     @JoinColumn( name = "attributes_id" )
     private Attributes attributes;
 
-    public Character(Player playerOwner, String name, String race, BasicClass basicClass, PrestigeClass prestigeClass, int level, int experiencePoints, Attributes attributes) {
+    public Character(Player playerOwner, String name, String race, BasicClass basicClass,  int level, int experiencePoints, Attributes attributes) {
         this.playerOwner = playerOwner;
         this.name = name;
         this.race = race;
         this.basicClass = basicClass;
-        this.prestigeClass = prestigeClass;
         this.level = level;
         this.experiencePoints = experiencePoints;
         this.attributes = attributes;

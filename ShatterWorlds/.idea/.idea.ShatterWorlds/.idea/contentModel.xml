@@ -9,33 +9,63 @@
         <e p="system" t="Include">
           <e p="In-Battle" t="Include">
             <e p="Scripts" t="Include">
-              <e p="CharacterController.cs" t="Include" />
-              <e p="CharacterManager.cs" t="Include" />
-              <e p="CharacterModel.cs" t="Include" />
-              <e p="CharacterNetwork.cs" t="Include" />
-              <e p="CharacterView.cs" t="Include" />
+              <e p="Board" t="Include">
+                <e p="BoardController.cs" t="Include" />
+                <e p="BoardModel.cs" t="Include" />
+                <e p="BoardNetwork.cs" t="Include" />
+                <e p="BoardSquare" t="Include">
+                  <e p="BoardSquareModel.cs" t="Include" />
+                </e>
+                <e p="BoardView.cs" t="Include" />
+              </e>
+              <e p="Character" t="Include">
+                <e p="CharacterController.cs" t="Include" />
+                <e p="CharacterManager.cs" t="Include" />
+                <e p="CharacterModel.cs" t="Include" />
+                <e p="CharacterNetwork.cs" t="Include" />
+                <e p="CharacterView.cs" t="Include" />
+              </e>
+              <e p="Manager" t="Include">
+                <e p="BattleManager.cs" t="Include" />
+                <e p="BattleNetwork.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="Network" t="Include">
-            <e p="GameLogic.cs" t="Include" />
-            <e p="MessageExtansions.cs" t="Include" />
-            <e p="NetworkManager.cs" t="Include" />
-            <e p="RiptideNetworking.xml" t="Include" />
-            <e p="UIManager.cs" t="Include" />
+            <e p="Packages" t="Include">
+              <e p="RiptideNetworking.xml" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="MessageHandler.cs" t="Include" />
+              <e p="NetworkManager.cs" t="Include" />
+              <e p="ServerToClientId.cs" t="Include" />
+              <e p="UIManager.cs" t="Include" />
+            </e>
           </e>
           <e p="Others" t="Include">
             <e p="ErrorLogger.cs" t="Include" />
+            <e p="GameLogger.cs" t="Include" />
+            <e p="Macros.cs" t="Include" />
           </e>
           <e p="Out-Battle" t="Include">
             <e p="Scripts" t="Include">
               <e p="Api" t="Include">
+                <e p="APIManager.cs" t="Include" />
+                <e p="CharacterAPIHandler.cs" t="Include" />
                 <e p="PlayerAPIHandler.cs" t="Include" />
               </e>
-              <e p="Menu" t="Include">
-                <e p="MenuController.cs" t="Include" />
-                <e p="SingIn.cs" t="Include" />
+              <e p="Managers" t="Include">
+                <e p="OutBattleManager.cs" t="Include" />
               </e>
-              <e p="Player" t="Include">
+              <e p="Menu" t="Include">
+                <e p="CreateCharacterMenu.cs" t="Include" />
+                <e p="MainMenu.cs" t="Include" />
+                <e p="MenuController.cs" t="Include" />
+                <e p="SingInMenu.cs" t="Include" />
+              </e>
+              <e p="Model" t="Include">
+                <e p="Attributes.cs" t="Include" />
+                <e p="Character.cs" t="Include" />
                 <e p="Player.cs" t="Include" />
               </e>
             </e>

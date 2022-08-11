@@ -50,23 +50,20 @@ public class CharacterService {
     }
 
     public Character create(CharacterRequestDTO characterRequestDTO) {
-        Player player = playerService.find(characterRequestDTO.getPlayerOwnerId());
-        PrestigeClass prestigeClass = prestigeClassService.find(characterRequestDTO.getPrestigeClassId());
+        //Player player = playerService.find(characterRequestDTO.getPlayerOwnerId());
         BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClassId());
-        Attributes attributes = attributesFactory.createWithoutId(characterRequestDTO.getAttributesDTO());
-        Character character = characterFactory.createWithoutId(characterRequestDTO, player,
-                basicClass, prestigeClass, attributes);
+        Attributes attributes = attributesFactory.createWithoutId(characterRequestDTO.getAttributes());
+        Character character = characterFactory.createWithoutId(characterRequestDTO,
+                basicClass, attributes);
         character = characterRepository.save(character);
         return character;
     }
 
     public Character update(CharacterRequestDTO characterRequestDTO) {
         if(characterIdExists(characterRequestDTO.getId())){
-            Player player = playerService.find(characterRequestDTO.getPlayerOwnerId());
-            PrestigeClass prestigeClass = prestigeClassService.find(characterRequestDTO.getPrestigeClassId());
+            //Player player = playerService.find(characterRequestDTO.getPlayerOwnerId());
             BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClassId());
-            Attributes attributes = attributesFactory.createWithoutId(characterRequestDTO.getAttributesDTO());
-            Character character = characterFactory.create(characterRequestDTO, player, basicClass, prestigeClass, attributes);
+            Attributes attributes = attributesFactory.createWithoutId(characterRequestDTO.getAttributes());            Character character = characterFactory.create(characterRequestDTO, basicClass, attributes);
             characterRepository.save(character);
             return character;
         }

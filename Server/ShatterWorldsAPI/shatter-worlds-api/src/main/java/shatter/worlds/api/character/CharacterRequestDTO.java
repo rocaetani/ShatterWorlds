@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shatter.worlds.api.character.attributes.Attributes;
 import shatter.worlds.api.character.attributes.AttributesDTO;
+import shatter.worlds.api.player.Player;
 
 @Getter
 @Setter
@@ -15,7 +16,7 @@ public class CharacterRequestDTO {
 
     private Long id;
 
-    private Long playerOwnerId;
+    private Player player;
 
     private String name;
 
@@ -23,12 +24,10 @@ public class CharacterRequestDTO {
 
     private Long basicClassId;
 
-    private Long prestigeClassId;
-
     private int level;
 
     private int experiencePoints;
 
-    private AttributesDTO attributesDTO;
+    private AttributesDTO attributes;
 
 }

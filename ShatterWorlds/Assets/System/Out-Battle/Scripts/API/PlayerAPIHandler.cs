@@ -7,26 +7,14 @@ using UnityEngine.Networking;
 
 public class PlayerAPIHandler : MonoBehaviour
 {
-
-    public static PlayerAPIHandler instance;
     
-    private String baseUrl;
-    private String playerUrl;
+    private String _baseURL;
+    private String _pathURL;
     
-    //public delegate void PlayerGetRequestCallback(String apiResponseJson);
-    //public static PlayerGetRequestCallback playerGetRequestCallback;
-
     void Awake()
     {
-        if (instance != null)
-        {
-            Debug.Log("PlayerAPIHandler singleton already instantiated.");
-            Destroy(this);
-        }
-
-        instance = this;
-        baseUrl = "http://localhost:8080";
-        playerUrl = "/player/";
+        _baseURL = "http://localhost:8080";
+        _pathURL = "/player/";
     }
 
     public void GetPlayer(String playerId, Action<String> actionCallback)
@@ -35,7 +23,7 @@ public class PlayerAPIHandler : MonoBehaviour
     }
     private IEnumerator GetPlayerCoroutine(String playerId, Action<String>  actionCallback)
     {
-        String uri = baseUrl + playerUrl + playerId; 
+        String uri = _baseURL + _pathURL + playerId; 
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -60,7 +48,7 @@ public class PlayerAPIHandler : MonoBehaviour
     }
     private IEnumerator GetUsernameValidationCoroutine(String username, Action<String> actionCallback)
     {
-        String uri = baseUrl + playerUrl + "validate/" +  username; 
+        String uri = _baseURL + _pathURL + "validate/" +  username; 
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -86,24 +74,18 @@ public class PlayerAPIHandler : MonoBehaviour
 
     private IEnumerator PostPlayerCoroutine(Player player, Action<String>  actionCallback)
     {
-        
-        WWWForm form = new WWWForm();
-
         String json = JsonUtility.ToJson(player);
         
-        Debug.Log(json);
-        form.AddField("",json );
-        
-        String uri = baseUrl + playerUrl;
+        String uri = _baseURL + _pathURL;
         using (UnityWebRequest webRequest = new UnityWebRequest(uri, "POST"))
         {   
             webRequest.SetRequestHeader("Content-Type", "application/json");
 
             byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
             webRequest.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            webRequest.downloadHandler = new DownloadHandlerBuffer();
             
             yield return webRequest.SendWebRequest();
-            
             if(webRequest.result == UnityWebRequest.Result.Success)
             {
                 String jsonResponse = webRequest.downloadHandler.text;

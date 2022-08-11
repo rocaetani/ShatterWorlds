@@ -10,26 +10,35 @@ import shatter.worlds.api.player.Player;
 @Component
 public class CharacterFactory {
 
-    public Character createWithoutId(CharacterRequestDTO characterRequestDTO, Player player, BasicClass basicClass, PrestigeClass prestigeClass, Attributes attributes) {
+
+    public Character createWithoutId(CharacterRequestDTO characterRequestDTO, BasicClass basicClass,  Attributes attributes) {
+        return new Character(
+                characterRequestDTO.getPlayer(),
+                characterRequestDTO.getName(),
+                characterRequestDTO.getRace(),
+                basicClass,
+                characterRequestDTO.getLevel(),
+                characterRequestDTO.getExperiencePoints(),
+                attributes);
+    }
+    public Character createWithoutId(CharacterRequestDTO characterRequestDTO, Player player, BasicClass basicClass,  Attributes attributes) {
         return new Character(
                 player,
                 characterRequestDTO.getName(),
                 characterRequestDTO.getRace(),
                 basicClass,
-                prestigeClass,
                 characterRequestDTO.getLevel(),
                 characterRequestDTO.getExperiencePoints(),
                 attributes);
     }
 
-    public Character create(CharacterRequestDTO characterRequestDTO, Player player, BasicClass basicClass, PrestigeClass prestigeClass, Attributes attributes){
+    public Character create(CharacterRequestDTO characterRequestDTO, BasicClass basicClass,  Attributes attributes){
         return new Character(
                 characterRequestDTO.getId(),
-                player,
+                characterRequestDTO.getPlayer(),
                 characterRequestDTO.getName(),
                 characterRequestDTO.getRace(),
                 basicClass,
-                prestigeClass,
                 characterRequestDTO.getLevel(),
                 characterRequestDTO.getExperiencePoints(),
                 attributes);

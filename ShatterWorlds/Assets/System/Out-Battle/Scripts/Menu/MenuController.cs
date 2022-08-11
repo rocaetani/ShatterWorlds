@@ -10,6 +10,8 @@ public class MenuController : MonoBehaviour
         LogIn = 0,
         SignIn = 1,
         Loading = 2,
+        Main = 3,
+        CreateCharacter
     }
     
     [Serializable]
