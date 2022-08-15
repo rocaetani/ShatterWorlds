@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 
-public class SingInMenu : MonoBehaviour
+public class SignInMenu : MonoBehaviour
 {
     [Header("Configuration")] 
     public MenuController MenuController;
@@ -53,11 +53,11 @@ public class SingInMenu : MonoBehaviour
     public void SignIn()
     {
         Player player = new Player(Username.text, Password.text);
-        APIManager.PlayerAPIHandler.PostPlayer(player, AfterPlayerResponse);
+        APIManager.PlayerAPIHandler.PostPlayer(player, AfterSignInResponse);
         MenuController.ChangeMenu(MenuController.MenuItemCategory.Loading);
     }
 
-    public void AfterPlayerResponse(String json)
+    public void AfterSignInResponse(String json)
     {
         OutBattleManager.instance.player = JsonUtility.FromJson<Player>(json);
         MenuController.ChangeMenu(MenuController.MenuItemCategory.CreateCharacter);

@@ -11,28 +11,27 @@ import shatter.worlds.api.player.Player;
 public class CharacterFactory {
 
 
-    public Character createWithoutId(CharacterRequestDTO characterRequestDTO, BasicClass basicClass,  Attributes attributes) {
+    public Character createWithoutIdAndAttributes(CharacterRequestDTO characterRequestDTO, BasicClass basicClass) {
         return new Character(
                 characterRequestDTO.getPlayer(),
                 characterRequestDTO.getName(),
                 characterRequestDTO.getRace(),
                 basicClass,
                 characterRequestDTO.getLevel(),
-                characterRequestDTO.getExperiencePoints(),
-                attributes);
+                characterRequestDTO.getExperiencePoints()
+                );
     }
-    public Character createWithoutId(CharacterRequestDTO characterRequestDTO, Player player, BasicClass basicClass,  Attributes attributes) {
+    public Character createWithoutId(CharacterRequestDTO characterRequestDTO, Player player, BasicClass basicClass) {
         return new Character(
                 player,
                 characterRequestDTO.getName(),
                 characterRequestDTO.getRace(),
                 basicClass,
                 characterRequestDTO.getLevel(),
-                characterRequestDTO.getExperiencePoints(),
-                attributes);
+                characterRequestDTO.getExperiencePoints());
     }
 
-    public Character create(CharacterRequestDTO characterRequestDTO, BasicClass basicClass,  Attributes attributes){
+    public Character create(CharacterRequestDTO characterRequestDTO, BasicClass basicClass){
         return new Character(
                 characterRequestDTO.getId(),
                 characterRequestDTO.getPlayer(),
@@ -40,7 +39,7 @@ public class CharacterFactory {
                 characterRequestDTO.getRace(),
                 basicClass,
                 characterRequestDTO.getLevel(),
-                characterRequestDTO.getExperiencePoints(),
-                attributes);
+                characterRequestDTO.getExperiencePoints()
+                );
     }
 }

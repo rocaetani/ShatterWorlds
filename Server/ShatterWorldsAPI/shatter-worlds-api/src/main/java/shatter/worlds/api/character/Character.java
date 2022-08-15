@@ -3,6 +3,7 @@ package shatter.worlds.api.character;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import shatter.worlds.api.character.attributes.Attributes;
 import shatter.worlds.api.character.classes.basic.BasicClass;
 import shatter.worlds.api.character.classes.prestige.PrestigeClass;
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity(name = "CHARACTER")
 @Getter
+@Setter
 public class Character {
 
     @Id
@@ -35,17 +37,13 @@ public class Character {
 
     private int experiencePoints;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn( name = "attributes_id" )
-    private Attributes attributes;
 
-    public Character(Player playerOwner, String name, String race, BasicClass basicClass,  int level, int experiencePoints, Attributes attributes) {
+    public Character(Player playerOwner, String name, String race, BasicClass basicClass,  int level, int experiencePoints) {
         this.playerOwner = playerOwner;
         this.name = name;
         this.race = race;
         this.basicClass = basicClass;
         this.level = level;
         this.experiencePoints = experiencePoints;
-        this.attributes = attributes;
     }
 }

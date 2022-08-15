@@ -46,12 +46,14 @@
             <e p="ErrorLogger.cs" t="Include" />
             <e p="GameLogger.cs" t="Include" />
             <e p="Macros.cs" t="Include" />
+            <e p="URLFormatter.cs" t="Include" />
           </e>
           <e p="Out-Battle" t="Include">
             <e p="Scripts" t="Include">
-              <e p="Api" t="Include">
+              <e p="API" t="Include">
                 <e p="APIManager.cs" t="Include" />
                 <e p="CharacterAPIHandler.cs" t="Include" />
+                <e p="LoginAPIHandler.cs" t="Include" />
                 <e p="PlayerAPIHandler.cs" t="Include" />
               </e>
               <e p="Managers" t="Include">
@@ -59,13 +61,15 @@
               </e>
               <e p="Menu" t="Include">
                 <e p="CreateCharacterMenu.cs" t="Include" />
+                <e p="LoginMenu.cs" t="Include" />
                 <e p="MainMenu.cs" t="Include" />
                 <e p="MenuController.cs" t="Include" />
-                <e p="SingInMenu.cs" t="Include" />
+                <e p="SigninMenu.cs" t="Include" />
               </e>
               <e p="Model" t="Include">
                 <e p="Attributes.cs" t="Include" />
                 <e p="Character.cs" t="Include" />
+                <e p="LoginResponse.cs" t="Include" />
                 <e p="Player.cs" t="Include" />
               </e>
             </e>
@@ -160,7 +164,7 @@
                 <e p="TopBar.cs" t="Include" />
               </e>
               <e p="Models" t="Include">
-                <e p="Api" t="Include">
+                <e p="API" t="Include">
                   <e p="ISourceControlProvider.cs" t="Include" />
                 </e>
                 <e p="ChangesModel.cs" t="Include" />
@@ -359,7 +363,7 @@
           </e>
           <e p="com.unity.test-framework@1.1.24" t="Include">
             <e p="UnityEditor.TestRunner" t="Include">
-              <e p="Api" t="Include">
+              <e p="API" t="Include">
                 <e p="CallbacksDelegator.cs" t="Include" />
                 <e p="CallbacksDelegatorListener.cs" t="Include" />
                 <e p="CallbacksHolder.cs" t="Include" />

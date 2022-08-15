@@ -1,5 +1,6 @@
 
 using System;
+using UnityEngine.Serialization;
 
 namespace outBattle
 {    
@@ -8,7 +9,7 @@ namespace outBattle
     {
         public int id;
 
-        public Player playerOwner;
+        public Player player;
 
         public String name;
 
@@ -22,10 +23,10 @@ namespace outBattle
 
         public Attributes attributes;
 
-        public Character(int id, Player playerOwner, string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
+        public Character(int id, Player player, string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
         {
             this.id = id;
-            this.playerOwner = playerOwner;
+            this.player = player;
             this.name = name;
             this.race = race;
             this.basicClassId = basicClassId;
@@ -35,9 +36,9 @@ namespace outBattle
         }
 
 
-        public Character(Player playerOwner, string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
+        public Character(Player player, string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
         {
-            this.playerOwner = playerOwner;
+            this.player = player;
             this.name = name;
             this.race = race;
             this.basicClassId = basicClassId;

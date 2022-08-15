@@ -8,6 +8,7 @@ public class OutBattleManager : MonoBehaviour
 {
     public static OutBattleManager instance;
     public Player player;
+    public List<Character> Characters;    
 
 
     public void Awake()

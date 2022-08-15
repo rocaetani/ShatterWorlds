@@ -701,7 +701,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 964405738}
-        m_TargetAssemblyTypeName: SingIn, Assembly-CSharp
+        m_TargetAssemblyTypeName: SignInMenu, Assembly-CSharp
         m_MethodName: SignIn
         m_Mode: 1
         m_Arguments:
@@ -1225,7 +1225,7 @@ GameObject:
   - component: {fileID: 620329957}
   - component: {fileID: 620329956}
   m_Layer: 5
-  m_Name: SignInButton
+  m_Name: SignInRedirectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3367,7 +3367,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1535820483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2131648275}
+        m_TargetAssemblyTypeName: LoginMenu, Assembly-CSharp
+        m_MethodName: LogIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1535820483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,6 +3584,7 @@ MonoBehaviour:
     id: 0
     username: 
     password: 
+  Characters: []
 --- !u!4 &1600458256
 Transform:
   m_ObjectHideFlags: 0
@@ -3681,7 +3694,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 964405738}
-        m_TargetAssemblyTypeName: SingIn, Assembly-CSharp
+        m_TargetAssemblyTypeName: SignInMenu, Assembly-CSharp
         m_MethodName: CheckValidateUsername
         m_Mode: 1
         m_Arguments:
@@ -3696,7 +3709,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 964405738}
-        m_TargetAssemblyTypeName: SingIn, Assembly-CSharp
+        m_TargetAssemblyTypeName: SignInMenu, Assembly-CSharp
         m_MethodName: UsernameFieldChanged
         m_Mode: 1
         m_Arguments:
@@ -4264,6 +4277,7 @@ GameObject:
   - component: {fileID: 2131648272}
   - component: {fileID: 2131648274}
   - component: {fileID: 2131648273}
+  - component: {fileID: 2131648275}
   m_Layer: 5
   m_Name: LogIn
   m_TagString: Untagged
@@ -4332,3 +4346,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131648271}
   m_CullTransparentMesh: 1
+--- !u!114 &2131648275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131648271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba3dece1d2cef64a8d9f7e58da30e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuController: {fileID: 240428351}
+  Username: {fileID: 951203623}
+  Password: {fileID: 1430005961}
+  LoginButton: {fileID: 1535820482}

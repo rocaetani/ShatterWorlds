@@ -2,8 +2,10 @@ package shatter.worlds.api.character;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import shatter.worlds.api.character.attributes.Attributes;
 import shatter.worlds.api.character.attributes.AttributesFactory;
+import shatter.worlds.api.character.attributes.AttributesService;
 import shatter.worlds.api.character.classes.basic.BasicClassService;
 import shatter.worlds.api.character.classes.basic.BasicClass;
 import shatter.worlds.api.character.classes.prestige.PrestigeClass;
@@ -28,13 +30,10 @@ public class CharacterService {
     private PlayerService playerService;
 
     @Autowired
-    private PrestigeClassService prestigeClassService;
-
-    @Autowired
     private BasicClassService basicClassService;
 
     @Autowired
-    private AttributesFactory attributesFactory;
+    private AttributesService attributesService;
 
     public Character find(Long id){
         Optional<Character> character = characterRepository.findById(id);
@@ -49,21 +48,21 @@ public class CharacterService {
         return characterRepository.findAllByPlayerOwner(player);
     }
 
+    @Transactional
     public Character create(CharacterRequestDTO characterRequestDTO) {
-        //Player player = playerService.find(characterRequestDTO.getPlayerOwnerId());
         BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClassId());
-        Attributes attributes = attributesFactory.createWithoutId(characterRequestDTO.getAttributes());
-        Character character = characterFactory.createWithoutId(characterRequestDTO,
-                basicClass, attributes);
+        Character character = characterFactory.createWithoutIdAndAttributes(characterRequestDTO, basicClass);
         character = characterRepository.save(character);
+        attributesService.create(characterRequestDTO.getAttributes(), character);
         return character;
     }
 
+
     public Character update(CharacterRequestDTO characterRequestDTO) {
+        //TODO deal with Attributes
         if(characterIdExists(characterRequestDTO.getId())){
-            //Player player = playerService.find(characterRequestDTO.getPlayerOwnerId());
             BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClassId());
-            Attributes attributes = attributesFactory.createWithoutId(characterRequestDTO.getAttributes());            Character character = characterFactory.create(characterRequestDTO, basicClass, attributes);
+            Character character = characterFactory.create(characterRequestDTO, basicClass);
             characterRepository.save(character);
             return character;
         }

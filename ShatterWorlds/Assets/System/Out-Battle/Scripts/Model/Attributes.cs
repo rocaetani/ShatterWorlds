@@ -9,45 +9,45 @@ namespace outBattle
     {
         public int id;
 
-        public int Strength;
+        public int strength;
 
-        public int Technique;
+        public int technique;
  
-        public int Dexterity;
+        public int dexterity;
 
-        public int Velocity;
+        public int velocity;
 
-        public int Intelligence;
+        public int intelligence;
 
-        public int Knowledge;
+        public int knowledge;
 
-        public int Spirituality;
+        public int spirituality;
 
-        public int Will;
+        public int will;
 
         public Attributes(int id, int strength, int technique, int dexterity, int velocity, int intelligence, int knowledge, int spirituality, int will)
         {
             this.id = id;
-            Strength = strength;
-            Technique = technique;
-            Dexterity = dexterity;
-            Velocity = velocity;
-            Intelligence = intelligence;
-            Knowledge = knowledge;
-            Spirituality = spirituality;
-            Will = will;
+            this.strength = strength;
+            this.technique = technique;
+            this.dexterity = dexterity;
+            this.velocity = velocity;
+            this.intelligence = intelligence;
+            this.knowledge = knowledge;
+            this.spirituality = spirituality;
+            this.will = will;
         }
 
         public Attributes(int strength, int technique, int dexterity, int velocity, int intelligence, int knowledge, int spirituality, int will)
         {
-            Strength = strength;
-            Technique = technique;
-            Dexterity = dexterity;
-            Velocity = velocity;
-            Intelligence = intelligence;
-            Knowledge = knowledge;
-            Spirituality = spirituality;
-            Will = will;
+            this.strength = strength;
+            this.technique = technique;
+            this.dexterity = dexterity;
+            this.velocity = velocity;
+            this.intelligence = intelligence;
+            this.knowledge = knowledge;
+            this.spirituality = spirituality;
+            this.will = will;
         }
     }
 }

@@ -25,6 +25,8 @@ public class PlayerController {
         return ResponseEntity.ok(playerService.find(id));
     }
 
+
+
     @GetMapping(path = "/characters/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Character>> findAllCharacters(@PathVariable Long id){
         return ResponseEntity.ok(characterService.findAllCharactersOfPlayer(id));

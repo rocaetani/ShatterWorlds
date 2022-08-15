@@ -18,34 +18,46 @@ public class Attributes {
     @SequenceGenerator(name = "SequenceAttributesId", sequenceName = "ATTRIBUTES_SEQ", allocationSize = 1)
     private Long id;
 
-    private int Strength;
+    private int strength;
 
-    private int Technique;
+    private int technique;
 
-    private int Dexterity;
+    private int dexterity;
 
-    private int Velocity;
+    private int velocity;
 
-    private int Intelligence;
+    private int intelligence;
 
-    private int Knowledge;
+    private int knowledge;
 
-    private int Spirituality;
+    private int spirituality;
 
-    private int Will;
+    private int will;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn( name = "character_id" )
     private Character character;
 
     public Attributes(int strength, int technique, int dexterity, int velocity, int intelligence, int knowledge, int spirituality, int will) {
-        Strength = strength;
-        Technique = technique;
-        Dexterity = dexterity;
-        Velocity = velocity;
-        Intelligence = intelligence;
-        Knowledge = knowledge;
-        Spirituality = spirituality;
-        Will = will;
+        this.strength = strength;
+        this.technique = technique;
+        this.dexterity = dexterity;
+        this.velocity = velocity;
+        this.intelligence = intelligence;
+        this.knowledge = knowledge;
+        this.spirituality = spirituality;
+        this.will = will;
+    }
+
+    public Attributes(int strength, int technique, int dexterity, int velocity, int intelligence, int knowledge, int spirituality, int will, Character character) {
+        this.strength = strength;
+        this.technique = technique;
+        this.dexterity = dexterity;
+        this.velocity = velocity;
+        this.intelligence = intelligence;
+        this.knowledge = knowledge;
+        this.spirituality = spirituality;
+        this.will = will;
+        this.character = character;
     }
 }

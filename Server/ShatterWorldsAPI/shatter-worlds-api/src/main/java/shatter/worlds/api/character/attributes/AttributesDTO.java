@@ -12,19 +12,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 @NoArgsConstructor
 public class AttributesDTO {
 
-    private int Strength;
+    private int strength;
 
-    private int Technique;
+    private int technique;
 
-    private int Dexterity;
+    private int dexterity;
 
-    private int Velocity;
+    private int velocity;
 
-    private int Intelligence;
+    private int intelligence;
 
-    private int Knowledge;
+    private int knowledge;
 
-    private int Spirituality;
+    private int spirituality;
 
     private int Will;
 }

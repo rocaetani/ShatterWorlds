@@ -20,6 +20,16 @@ public class PlayerService {
     private PlayerFactory playerFactory;
 
 
+
+    public Player find(String username, String password){
+        Optional<Player> player = playerRepository.findByUsernameAndPassword(username, password);
+        if(player.isPresent()){
+            return player.get();
+        }
+        throw new EntityNotFoundException("Player " + username +" not found");
+    }
+
+
     public Player find(Long id){
         Optional<Player> player = playerRepository.findById(id);
         if(player.isPresent()){

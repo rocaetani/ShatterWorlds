@@ -2,75 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6688e71-89fb-4e95-921b-d4c4e082663d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShatterWorldsServer/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Database/DatabaseConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Deprecated/MessageConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Deprecated/MessageConfigRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Helpers/Macros.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Model/Battle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Model/BattlesManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Model/Board.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Model/BoardSquare.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Model/Client.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Network/Handlers/ClientToServerId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Network/Handlers/MessageHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Network/Messages/MessagePreparer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Network/Messages/SeedMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ShatterWorlds/.idea/.idea.ShatterWorlds/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/Scripts/ServerToClientId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/Scripts/ServerToClientId.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/CharacterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/CharacterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/CharacterRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/CharacterRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/CharacterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/java/shatter/worlds/api/character/CharacterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ShatterWorldsAPI/shatter-worlds-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShatterWorldsServer/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShatterWorldsServer/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShatterWorldsServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShatterWorldsServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/NetworkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Network/NetworkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/PlayerManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/src/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/ShatterWorldBattleServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/ShatterWorldBattleServer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/bin/Debug/ShatterWorldBattleServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/bin/Debug/ShatterWorldBattleServer.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/bin/Debug/ShatterWorldBattleServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/bin/Debug/ShatterWorldBattleServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShatterWorldBattleServer/obj/Debug/ShatterWorldBattleServer.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ShatterWorldBattleServer/obj/Debug/ShatterWorldBattleServer.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/.idea/.idea.ShatterWorlds/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ShatterWorlds/.idea/.idea.ShatterWorlds/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/.idea/.idea.ShatterWorlds/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ShatterWorlds/.idea/.idea.ShatterWorlds/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/Scenes/APITest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../ShatterWorlds/Assets/Scenes/APITest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/Scenes/NetworkConnection.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/Scenes/NetworkConnection.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterNetwork.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterNetwork.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/In-Battle/Scripts/CharacterView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/GameLogic.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/GameLogic.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/MessageExtansions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/MessageExtansions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/NetworkManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/NetworkManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/RiptideNetworking.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/RiptideNetworking.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/RiptideNetworking.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/RiptideNetworking.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/UIManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Network/UIManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/API/PlayerAPIHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/API/PlayerAPIHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/Menu/MenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/Menu/MenuController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/Menu/SingIn.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/Menu/SingIn.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/Player.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/Player/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/Assets/System/Out-Battle/Scripts/Player/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../ShatterWorlds/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ShatterWorlds/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../ShatterWorlds/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -494,7 +426,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1734" height="1399" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1827957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -503,7 +434,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32919255" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32919255" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42779502" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
