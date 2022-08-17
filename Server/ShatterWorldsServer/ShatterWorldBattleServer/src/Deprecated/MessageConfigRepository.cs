@@ -1,3 +1,4 @@
+/*
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,7 +28,7 @@ namespace ShatterWorldBattleServer
             }
         }
         */
-        
+        /*
         public async Task<MessageConfig> Get(int id)
         {
             string commandText = $"SELECT * FROM {TABLE_NAME} WHERE ID = @id";
@@ -92,3 +93,4 @@ namespace ShatterWorldBattleServer
         
     }
 }
+*/

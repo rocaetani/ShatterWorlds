@@ -1,3 +1,4 @@
+/*
 using System;
 using RiptideNetworking;
 
@@ -19,3 +20,4 @@ namespace ShatterWorldBattleServer
         }
     }
 }
+*/
