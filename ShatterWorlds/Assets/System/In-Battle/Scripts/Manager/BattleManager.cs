@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using outBattle;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
@@ -12,7 +13,13 @@ public class BattleManager : MonoBehaviour
     private int _battleSeed;
 
     private System.Random _battleRandom;
-    
+
+    private BattleNetwork _battleNetwork;
+
+    public Player Player;
+
+    public List<Character> Characters;
+
     private void Awake()
     {
         if (instance != null)
@@ -22,6 +29,15 @@ public class BattleManager : MonoBehaviour
         }
 
         instance = this;
+        
+
+    }
+
+    private void Start()
+    {
+        _battleNetwork = new BattleNetwork();
+        Player = SceneTransactional.instance.OutToInTransaction.Player;
+        Characters = SceneTransactional.instance.OutToInTransaction.Characters;
     }
 
     public void SetBattleSeed(int seed)
@@ -45,6 +61,11 @@ public class BattleManager : MonoBehaviour
     public void InitBoardController()
     {
         BoardController = gameObject.AddComponent<BoardController>();
+    }
+
+    public void SendLoginInfoToServer()
+    {
+     _battleNetwork.LoginOnServer(Player.username,Player.password);   
     }
 
 }

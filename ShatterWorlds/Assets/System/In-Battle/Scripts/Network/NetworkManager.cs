@@ -1,6 +1,7 @@
 using System;
-using RiptideNetworking;
+using outBattle;
 using RiptideNetworking.Utils;
+using RiptideNetworking;
 using UnityEngine;
 
 
@@ -35,16 +36,17 @@ public class NetworkManager : MonoBehaviour
     private void Awake()
     {
         Singleton = this;
-    }
-
-    private void Start()
-    {
         RiptideLogger.Initialize(Debug.Log, Debug.Log, Debug.LogWarning, Debug.LogError, false);
 
         Client = new Client();
         Client.Connected += DidConnect;
         Client.Disconnected += DidDisconnect;
         Client.ConnectionFailed += FailToConnect;
+    }
+
+    private void Start()
+    {
+        
     }
     
     private void FixedUpdate()
@@ -64,17 +66,25 @@ public class NetworkManager : MonoBehaviour
 
     private void DidConnect(object sender, EventArgs e)
     {
-        UIManager.Singleton.SendName();
+        BattleManager.instance.SendLoginInfoToServer();
     }
-    
     private void FailToConnect(object sender, EventArgs e)
     {
-        UIManager.Singleton.BackToMain();
+        ErrorLogger.instance.LogError("Fail to connect on server",this);
+        ReturnToMainMenu();
     }
     
     private void DidDisconnect(object sender, EventArgs e)
     {
-        UIManager.Singleton.BackToMain();
+        GameLogger.instance.Log("Disconnected...", this);
+        ReturnToMainMenu();
+    }
+
+    private void ReturnToMainMenu()
+    {
+        SceneTransactional.instance.InToOutTransaction.comebackMenu = MenuController.MenuItemCategory.Main;
+        SceneTransactional.instance.InToOutTransaction.Player = BattleManager.instance.Player;
+        SceneTransactional.instance.ChangeToMainMenu();
     }
     
 }

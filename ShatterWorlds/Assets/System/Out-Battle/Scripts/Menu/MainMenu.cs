@@ -7,6 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     public void StartBattle()
     {
-        SceneManager.LoadScene("BattleScene");
+        SceneTransactional.instance.ChangeToBattleScene(OutBattleManager.instance.Player, OutBattleManager.instance.Characters);
     }
 }

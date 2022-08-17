@@ -8,8 +8,7 @@ using UnityEngine.UIElements;
 
 public class CreateCharacterMenu : MonoBehaviour
 {
-    [Header("Configuration")] 
-    public MenuController MenuController;
+
 
     public void CreateWarrior()
     {
@@ -31,7 +30,7 @@ public class CreateCharacterMenu : MonoBehaviour
 
     public void CreateCharacter(int basicClassId)
     {
-        Character character = new Character(OutBattleManager.instance.player, "ciclano", "Humano", basicClassId, 1, 0, CreateBasicAttributes());
+        Character character = new Character(OutBattleManager.instance.Player, "ciclano", "Humano", basicClassId, 1, 0, CreateBasicAttributes());
         String json = JsonUtility.ToJson(character);
 
         
@@ -46,7 +45,7 @@ public class CreateCharacterMenu : MonoBehaviour
     public void AfterCharacterCreation(String json)
     {
         Character character = JsonUtility.FromJson<Character>(json);
-        MenuController.ChangeMenu(MenuController.MenuItemCategory.Main);
+        MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }
 
     public Attributes CreateBasicAttributes()

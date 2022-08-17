@@ -15,6 +15,7 @@ public class ErrorLogger : MonoBehaviour
         {
             Debug.Log("ErrorLogger singleton already instantiated.");
             Destroy(this);
+            return;
         }
 
         instance = this;

@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
-
+    public static MenuController instance;
+    
     public enum MenuItemCategory {
         LogIn = 0,
         SignIn = 1,
         Loading = 2,
         Main = 3,
-        CreateCharacter
+        CreateCharacter = 4,
     }
     
     [Serializable]
@@ -37,6 +38,13 @@ public class MenuController : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            ErrorLogger.instance.LogError("MenuController singleton already instantiated.", this);
+            Destroy(this);
+        }
+
+        instance = this;
         InitializeMenuItems();
         _activeMenu = MenuItemCategory.LogIn;
         ActivateMenu(_activeMenu);
@@ -72,5 +80,10 @@ public class MenuController : MonoBehaviour
     public void ChangeMenu(int category)
     {
         ChangeMenu((MenuItemCategory) category);
+    }
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 }

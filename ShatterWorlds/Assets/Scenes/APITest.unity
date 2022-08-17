@@ -1102,7 +1102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf7677dab4b5f045987b80e508a6581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuController: {fileID: 240428351}
 --- !u!1 &557253150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1210,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &608758380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608758382}
+  - component: {fileID: 608758381}
+  m_Layer: 0
+  m_Name: SceneTransaction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &608758381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608758380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90576b7d5cef1c4dbba6ce73533be43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &608758382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608758380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1024.0819, y: 426.69183, z: -220.91457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &620329954
 GameObject:
@@ -1813,7 +1855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c520ac4a7ace646b81f7804a99a912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuController: {fileID: 240428351}
   Username: {fileID: 1615091364}
   Password: {fileID: 1179803137}
   ConfirmPassword: {fileID: 1653023020}
@@ -3580,7 +3621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3301833984b4f499d3e695514221a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
+  Player:
     id: 0
     username: 
     password: 
@@ -4358,7 +4399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba3dece1d2cef64a8d9f7e58da30e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuController: {fileID: 240428351}
   Username: {fileID: 951203623}
   Password: {fileID: 1430005961}
   LoginButton: {fileID: 1535820482}

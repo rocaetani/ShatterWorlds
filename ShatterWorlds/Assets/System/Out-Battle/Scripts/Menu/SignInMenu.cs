@@ -6,9 +6,7 @@ using Button = UnityEngine.UI.Button;
 
 public class SignInMenu : MonoBehaviour
 {
-    [Header("Configuration")] 
-    public MenuController MenuController;
-    
+
     [Header("Sign In Form Fields")]
     public InputField Username;
     public InputField Password;
@@ -54,14 +52,14 @@ public class SignInMenu : MonoBehaviour
     {
         Player player = new Player(Username.text, Password.text);
         APIManager.PlayerAPIHandler.PostPlayer(player, AfterSignInResponse);
-        MenuController.ChangeMenu(MenuController.MenuItemCategory.Loading);
+        MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Loading);
     }
 
     public void AfterSignInResponse(String json)
     {
-        OutBattleManager.instance.player = JsonUtility.FromJson<Player>(json);
-        MenuController.ChangeMenu(MenuController.MenuItemCategory.CreateCharacter);
-        Debug.Log(OutBattleManager.instance.player.id);
+        OutBattleManager.instance.Player = JsonUtility.FromJson<Player>(json);
+        MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.CreateCharacter);
+        Debug.Log(OutBattleManager.instance.Player.id);
 
     }
 

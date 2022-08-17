@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class LoginMenu : MonoBehaviour
 {
-   [Header("Configuration")] 
-    public MenuController MenuController;
+
     
     [Header("Sign In Form Fields")]
     public InputField Username;
@@ -38,22 +37,8 @@ public class LoginMenu : MonoBehaviour
 
     public void LogIn()
     {
-        APIManager.LoginApiHandler.GetLogin(Username.text, Password.text, AfterLoginResponse);
+        OutBattleManager.instance.LogIn(Username.text, Password.text);
         
     }
-
-    public void AfterLoginResponse(String json)
-    {
-        
-        LoginResponse loginResponse = JsonUtility.FromJson<LoginResponse>(json);
-        OutBattleManager.instance.player = loginResponse.player;
-        Debug.Log(OutBattleManager.instance.player.username);
-        Debug.Log(loginResponse.characters[0].name);
-        
-
-        MenuController.ChangeMenu(MenuController.MenuItemCategory.Main);
-    }
-    
-
 
 }
