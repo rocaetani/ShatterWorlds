@@ -16,8 +16,6 @@
             {
                 NetworkManager.Instance.FixedUpdate();
             }
-
-            
         }
     }
 }
