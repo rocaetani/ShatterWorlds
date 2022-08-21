@@ -1,45 +1,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using outBattle;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CreateCharacterMenu : MonoBehaviour
 {
+    public AttributeComponent Constitution;
+    public AttributeComponent Technique;
+   
+    public AttributeComponent Dexterity;
+    public AttributeComponent Velocity;
+   
+    public AttributeComponent Intelligence;
+    public AttributeComponent Knowledge;
+   
+    public AttributeComponent Spirit;
+    public AttributeComponent Will;
 
+    public InputField Name;
+    public Dropdown Race;
+    public Dropdown BasicClass;
 
-    public void CreateWarrior()
+    public void Save()
     {
-        CreateCharacter(1);
-    }
-    
-
-    public void CreateArcher()
-    {
-        CreateCharacter(2);
-    }
-
-    
-    public void CreateMage()
-    {
-        CreateCharacter(3);
-    }
-    
-
-    public void CreateCharacter(int basicClassId)
-    {
-        Character character = new Character(OutBattleManager.instance.Player, "ciclano", "Humano", basicClassId, 1, 0, CreateBasicAttributes());
+        Character character = CreateCharacter();
         String json = JsonUtility.ToJson(character);
-
-        
         SendCharacterToServer(character);
     }
-
+    
     public void SendCharacterToServer(Character character)
     {
         APIManager.CharacterAPIHandler.PostCharacter(character,  AfterCharacterCreation);
+        MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Loading);
     }
 
     public void AfterCharacterCreation(String json)
@@ -47,9 +41,28 @@ public class CreateCharacterMenu : MonoBehaviour
         Character character = JsonUtility.FromJson<Character>(json);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }
-
-    public Attributes CreateBasicAttributes()
+    
+    private Character CreateCharacter()
     {
-        return new Attributes(10,10,10,10,10,10,10,10);
+        Debug.Log($"Race: {Race.captionText.text}");
+        Debug.Log($"Class: {BasicClass.value}");
+
+        return new Character(OutBattleManager.instance.Player,Name.text,Race.captionText.text, BasicClass.value, 1, 0, CreateAttributes());
+        
     }
+
+
+    private Attributes CreateAttributes()
+    {
+        return new Attributes(
+            Constitution.GetValue(),
+            Technique.GetValue(),
+            Dexterity.GetValue(),
+            Velocity.GetValue(),
+            Intelligence.GetValue(),
+            Knowledge.GetValue(),
+            Spirit.GetValue(),
+            Will.GetValue());
+    }
+
 }

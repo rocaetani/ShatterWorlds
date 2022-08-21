@@ -58,7 +58,7 @@ public class SignInMenu : MonoBehaviour
     public void AfterSignInResponse(String json)
     {
         OutBattleManager.instance.Player = JsonUtility.FromJson<Player>(json);
-        MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.CreateCharacter);
+        MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.CreateFirstCharacter);
         Debug.Log(OutBattleManager.instance.Player.id);
 
     }

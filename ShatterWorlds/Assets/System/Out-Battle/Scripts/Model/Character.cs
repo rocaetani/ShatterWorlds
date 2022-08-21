@@ -23,6 +23,18 @@ namespace outBattle
 
         public Attributes attributes;
 
+        public Character(string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
+        {
+            this.id = id;
+            this.player = player;
+            this.name = name;
+            this.race = race;
+            this.basicClassId = basicClassId;
+            this.level = level;
+            this.experiencePoints = experiencePoints;
+            this.attributes = attributes;
+        }
+        
         public Character(int id, Player player, string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
         {
             this.id = id;

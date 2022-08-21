@@ -9,4 +9,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneTransactional.instance.ChangeToBattleScene(OutBattleManager.instance.Player, OutBattleManager.instance.Characters);
     }
+
+    public void CreateCharacter()
+    {
+        MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.CreateCharacter);
+    }
 }
