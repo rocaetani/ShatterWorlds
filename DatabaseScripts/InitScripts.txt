@@ -1,0 +1,11 @@
+	delete from "character" ;	
+	delete from "attributes" ;
+	delete from "player" ;
+	
+
+insert into basic_class (id, name) values (nextval('basic_class_seq'),'Warrior');
+insert into basic_class (id, name) values (nextval('basic_class_seq'),'Archer');
+insert into basic_class (id, name) values (nextval('basic_class_seq'),'Mage');
+
+insert into basic_class (name) values ("Archer");
+insert into basic_class (name) values ("Mage");
