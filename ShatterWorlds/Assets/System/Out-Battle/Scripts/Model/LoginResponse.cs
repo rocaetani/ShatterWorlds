@@ -12,9 +12,12 @@ public class LoginResponse
 
     public List<Character> characters;
 
-    public LoginResponse(Player player, List<Character> characters)
+    public List<BasicClass> basicClasses;
+
+    public LoginResponse(Player player, List<Character> characters, List<BasicClass> basicClasses)
     {
         this.player = player;
         this.characters = characters;
+        this.basicClasses = basicClasses;
     }
 }

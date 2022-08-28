@@ -5,10 +5,8 @@ using outBattle;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoginMenu : MonoBehaviour
+public class LoginMenu : MenuTemplate
 {
-
-    
     [Header("Sign In Form Fields")]
     public InputField Username;
     public InputField Password;
@@ -28,7 +26,7 @@ public class LoginMenu : MonoBehaviour
 
     private bool AreFieldsValid()
     {
-        if (String.IsNullOrWhiteSpace(Username.text) | String.IsNullOrWhiteSpace(Password.text))
+        if(String.IsNullOrWhiteSpace(Username.text) | String.IsNullOrWhiteSpace(Password.text))
         {
             return false;
         }
@@ -41,4 +39,9 @@ public class LoginMenu : MonoBehaviour
         
     }
 
+    public override void InitMenu()
+    {
+        Debug.Log("Login Menu");
+
+    }
 }

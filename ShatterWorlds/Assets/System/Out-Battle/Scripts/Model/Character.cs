@@ -1,9 +1,7 @@
-
 using System;
-using UnityEngine.Serialization;
 
 namespace outBattle
-{    
+{
     [Serializable]
     public class Character
     {
@@ -11,11 +9,11 @@ namespace outBattle
 
         public Player player;
 
-        public String name;
+        public string name;
 
-        public String race;
+        public string race;
 
-        public int basicClassId;
+        public BasicClass basicClass;
 
         public int level;
 
@@ -23,42 +21,41 @@ namespace outBattle
 
         public Attributes attributes;
 
-        public Character(string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
+        public Character(string name, string race, BasicClass basicClass, int level, int experiencePoints,
+            Attributes attributes)
         {
-            this.id = id;
-            this.player = player;
             this.name = name;
             this.race = race;
-            this.basicClassId = basicClassId;
+            this.basicClass = basicClass;
             this.level = level;
             this.experiencePoints = experiencePoints;
             this.attributes = attributes;
         }
-        
-        public Character(int id, Player player, string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
+
+        public Character(int id, Player player, string name, string race, BasicClass basicClass, int level,
+            int experiencePoints, Attributes attributes)
         {
             this.id = id;
             this.player = player;
             this.name = name;
             this.race = race;
-            this.basicClassId = basicClassId;
+            this.basicClass = basicClass;
             this.level = level;
             this.experiencePoints = experiencePoints;
             this.attributes = attributes;
         }
 
 
-        public Character(Player player, string name, string race, int basicClassId, int level, int experiencePoints, Attributes attributes)
+        public Character(Player player, string name, string race, BasicClass basicClass, int level, int experiencePoints,
+            Attributes attributes)
         {
             this.player = player;
             this.name = name;
             this.race = race;
-            this.basicClassId = basicClassId;
+            this.basicClass = basicClass;
             this.level = level;
             this.experiencePoints = experiencePoints;
             this.attributes = attributes;
         }
     }
 }
-
-

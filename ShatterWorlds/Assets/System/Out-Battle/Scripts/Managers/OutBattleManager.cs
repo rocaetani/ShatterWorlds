@@ -9,7 +9,9 @@ public class OutBattleManager : MonoBehaviour
 {
     public static OutBattleManager instance;
     public Player Player;
-    public List<Character> Characters;    
+    public List<Character> Characters;
+
+    public BasicClassManager BasicClassManager;
 
 
     public void Awake()
@@ -26,30 +28,31 @@ public class OutBattleManager : MonoBehaviour
             MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
             LoadPlayerData();
         }
+        BasicClassManager = new BasicClassManager();
     }
 
     public void LoadPlayerData()
     {
-        Player player = SceneTransactional.instance.InToOutTransaction.Player;
-        LogIn(player.username,player.password);
+        var player = SceneTransactional.instance.InToOutTransaction.Player;
+        LogIn(player.username, player.password);
     }
 
-    public void LogIn(String username, String password)
+    public void LogIn(string username, string password)
     {
         APIManager.LoginApiHandler.GetLogin(username, password, AfterLoginResponse);
-        
     }
 
-    public void AfterLoginResponse(String json)
+    public void AfterLoginResponse(string json)
     {
-        
-        LoginResponse loginResponse = JsonUtility.FromJson<LoginResponse>(json);
+        var loginResponse = JsonUtility.FromJson<LoginResponse>(json);
         Player = loginResponse.player;
         Characters = loginResponse.characters;
-        
+
+        BasicClassManager.PopulateBasicClasses(loginResponse.basicClasses);
+
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }
-    
+
     public void OnDestroy()
     {
         instance = null;

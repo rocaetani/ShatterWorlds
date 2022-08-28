@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 
-public class SignInMenu : MonoBehaviour
+public class SignInMenu : MenuTemplate
 {
 
     [Header("Sign In Form Fields")]
@@ -106,4 +106,8 @@ public class SignInMenu : MonoBehaviour
         return Password.text == ConfirmPassword.text;
     }
 
+    public override void InitMenu()
+    {
+        Debug.Log("SignIn Menu");
+    }
 }

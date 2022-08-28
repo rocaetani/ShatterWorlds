@@ -6,22 +6,24 @@ using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     public static MenuController instance;
-    
-    public enum MenuItemCategory {
+
+    public enum MenuItemCategory
+    {
         LogIn = 0,
         SignIn = 1,
         Loading = 2,
         Main = 3,
         CreateFirstCharacter = 4,
-        CreateCharacter = 5
+        CreateCharacter = 5,
+        StartBattle = 6
     }
-    
+
     [Serializable]
     public struct MenuItem
     {
         public MenuItemCategory category;
         public GameObject panel;
-   
+
         //Constructor (not necessary, but helpful)
         public MenuItem(MenuItemCategory category, GameObject panel)
         {
@@ -32,7 +34,7 @@ public class MenuController : MonoBehaviour
 
     [SerializeField]
     public List<MenuItem> MenuItems;
-    
+
     private Dictionary<MenuItemCategory, GameObject> _menuItems;
 
     private MenuItemCategory _activeMenu;
@@ -66,11 +68,18 @@ public class MenuController : MonoBehaviour
         DeactivateMenu(_activeMenu);
         ActivateMenu(category);
         _activeMenu = category;
+
     }
 
     private void ActivateMenu(MenuItemCategory category)
     {
-        _menuItems[category].SetActive(true);
+        var menuItem = _menuItems[category];
+        menuItem.SetActive(true);
+        var menuTemplate = menuItem.GetComponent<MenuTemplate>();
+        if (menuTemplate != null)
+        {
+            menuTemplate.InitMenu();
+        }
     }
 
     private void DeactivateMenu(MenuItemCategory category)
@@ -80,7 +89,7 @@ public class MenuController : MonoBehaviour
 
     public void ChangeMenu(int category)
     {
-        ChangeMenu((MenuItemCategory) category);
+        ChangeMenu((MenuItemCategory)category);
     }
 
     private void OnDestroy()

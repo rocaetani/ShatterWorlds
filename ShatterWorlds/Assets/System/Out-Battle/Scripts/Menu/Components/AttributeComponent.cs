@@ -34,5 +34,6 @@ public class AttributeComponent : MonoBehaviour
         return _counter;
     }
 
+    
 
 }

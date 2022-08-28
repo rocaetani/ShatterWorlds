@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shatter.worlds.api.character.attributes.Attributes;
 import shatter.worlds.api.character.attributes.AttributesDTO;
+import shatter.worlds.api.character.classes.basic.BasicClass;
 import shatter.worlds.api.player.Player;
 
 @Getter
@@ -22,7 +23,7 @@ public class CharacterRequestDTO {
 
     private String race;
 
-    private Long basicClassId;
+    private BasicClass basicClass;
 
     private int level;
 
