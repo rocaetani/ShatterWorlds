@@ -16,7 +16,7 @@ public class BasicClass {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SequenceBasicClassId")
     @SequenceGenerator(name = "SequenceBasicClassId", sequenceName = "BASIC_CLASS_SEQ", allocationSize = 1)
 
-    private Long id;
+    private Long basicClassId;
 
     private String name;
 

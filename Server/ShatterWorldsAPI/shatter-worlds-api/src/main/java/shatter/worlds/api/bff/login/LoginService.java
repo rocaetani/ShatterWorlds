@@ -25,7 +25,7 @@ public class LoginService {
 
     public LoginResponseDTO login(String username,    String password){
         Player player = playerService.find(username, password);
-        List<Character> characterList = characterService.findAllCharactersOfPlayer(player.getId());
+        List<Character> characterList = characterService.findAllCharactersOfPlayer(player.getPlayerId());
         List<BasicClass> basicClasses = basicClassService.findAll();
         return new LoginResponseDTO(player,  characterList, basicClasses);
     }

@@ -13,7 +13,7 @@ namespace ShatterWorldBattleServer
             BoardSize = boardSize;
             BoardStructure = new BoardSquare[boardSize,boardSize];
             InitiateBoard();
-            Console.WriteLine($" {boardSize}");
+            //Console.WriteLine($" {boardSize}");
         }
 
         private void InitiateBoard()

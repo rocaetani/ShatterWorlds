@@ -50,7 +50,7 @@ public class CharacterService {
 
     @Transactional
     public Character create(CharacterRequestDTO characterRequestDTO) {
-        BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClass().getId());
+        BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClass().getBasicClassId());
         Character character = characterFactory.createWithoutIdAndAttributes(characterRequestDTO, basicClass);
         character = characterRepository.save(character);
         attributesService.create(characterRequestDTO.getAttributes(), character);
@@ -61,7 +61,7 @@ public class CharacterService {
     public Character update(CharacterRequestDTO characterRequestDTO) {
         //TODO deal with Attributes
         if(characterIdExists(characterRequestDTO.getId())){
-            BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClass().getId());
+            BasicClass basicClass = basicClassService.find(characterRequestDTO.getBasicClass().getBasicClassId());
             Character character = characterFactory.create(characterRequestDTO, basicClass);
             characterRepository.save(character);
             return character;

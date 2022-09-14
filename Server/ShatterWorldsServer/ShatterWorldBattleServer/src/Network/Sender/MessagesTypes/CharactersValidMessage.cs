@@ -1,13 +1,14 @@
 using System;
 using RiptideNetworking;
+using ShatterWorldBattleServer.Handlers;
 
 namespace ShatterWorldBattleServer
 {
-    public class SeedMessage : MessagePreparer<int>
+    public class CharactersValidMessage : MessagePreparer<bool>
     {
-        private ushort ID = 1;
+        private ServerToClientId ID = ServerToClientId.charactersValid;
 
-        protected override Message PrepareMessage(int content)
+        protected override Message PrepareMessage(bool content)
         {
             Message message = Message.Create(MessageSendMode.reliable, ID);
             message.Add(content);

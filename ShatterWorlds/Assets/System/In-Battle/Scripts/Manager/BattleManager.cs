@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using outBattle;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
 
-    public static BattleManager instance;
+    //public static BattleManager instance;
 
     public BoardController BoardController;
 
@@ -20,24 +21,17 @@ public class BattleManager : MonoBehaviour
 
     public List<Character> Characters;
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.Log("Logger singleton already instantiated.");
-            Destroy(this);
-        }
-
-        instance = this;
-        
-
-    }
 
     private void Start()
     {
-        _battleNetwork = new BattleNetwork();
+        _battleNetwork = new BattleNetwork(this);
         Player = SceneTransactional.instance.OutToInTransaction.Player;
         Characters = SceneTransactional.instance.OutToInTransaction.Characters;
+    }
+
+    public void StartBattle(int seed)
+    {
+
     }
 
     public void SetBattleSeed(int seed)
@@ -61,11 +55,23 @@ public class BattleManager : MonoBehaviour
     public void InitBoardController()
     {
         BoardController = gameObject.AddComponent<BoardController>();
+        BoardController.InitBoard(GenerateRandInt(Macros.MIN_BOARD_SIZE, Macros.MAX_BOARD_SIZE));
     }
 
     public void SendLoginInfoToServer()
     {
-     _battleNetwork.LoginOnServer(Player.username,Player.password);   
+        _battleNetwork.LoginOnServer(Player.playerId, Player.username, Player.password);
+    }
+
+    public void SendChosenCharactersToServer()
+    {
+        _battleNetwork.SendChosenCharacters(Player.playerId, GetCharacterIds(Characters));
+    }
+
+    public List<int> GetCharacterIds(List<Character> characters)
+    {
+        List<int> result = characters.Select((character) => character.characterId).ToList();
+        return result;
     }
 
 }

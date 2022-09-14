@@ -29,7 +29,7 @@ namespace ShatterWorldBattleServer
 
             Server = new Server();
             Server.Start(port, maxClientCount);
-            Server.ClientDisconnected += BattlesManager.Instance.OnClientDisconnect;
+            Server.ClientDisconnected += ServerManager.Instance.OnClientDisconnect;
         }
         
 

@@ -6,7 +6,7 @@ namespace ShatterWorldBattleServer
     {
         protected abstract Message PrepareMessage(T content);
 
-        public void Send(T content, ushort clientId)
+        public void Send(ushort clientId, T content)
         {
             NetworkManager.Instance.Server.Send(PrepareMessage(content), clientId);
         }

@@ -15,7 +15,7 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SequencePlayerId")
     @SequenceGenerator(name = "SequencePlayerId", sequenceName = "PLAYER_SEQ", allocationSize = 1)
-    private Long id;
+    private Long playerId;
 
     private String username;
 

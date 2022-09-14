@@ -5,29 +5,36 @@ using UnityEngine;
 
 public class BasicClassManager
 {
-    public Dictionary<int, BasicClass> BasicClasses;
+    private Dictionary<int, BasicClass> BasicClasses;
 
     public BasicClassManager()
     {
         BasicClasses = new Dictionary<int, BasicClass>();
         //RequestBasicClasses();
+        LoadBasicClasses();
     }
 
+    public void LoadBasicClasses()
+    {
+        APIManager.BasicClassHandler.GetBasicClasses(AfterLoadBasicClassesResponse);
+    }
+
+    public void AfterLoadBasicClassesResponse(string json)
+    {
+        //TODO - Refactor this to be an Helper
+        json = "{\"basicClasses\": " + json + "}";
+
+        BasicClassResponse response = JsonUtility.FromJson<BasicClassResponse>(json);
+        PopulateBasicClasses(response.basicClasses);
+    }
 
     public void PopulateBasicClasses(List<BasicClass> basicClasses)
     {
-        foreach (var basicClass in basicClasses)
+        foreach (BasicClass basicClass in basicClasses)
         {
-            BasicClasses.Add(basicClass.id, basicClass);
+            BasicClasses.Add(basicClass.basicClassId, basicClass);
         }
-    }
-
-    public void Print()
-    {
-        foreach (int id in BasicClasses.Keys)
-        {
-            Debug.Log($"{BasicClasses[id].name}");
-        }
+        Print();
     }
 
     public BasicClass GetBasicClass(int basicClassId)
@@ -38,5 +45,13 @@ public class BasicClassManager
     public List<string> ReturnClassesNames()
     {
         return BasicClasses.Values.Select(BasicClass => BasicClass.name).ToList();
+    }
+
+    public void Print()
+    {
+        foreach (int id in BasicClasses.Keys)
+        {
+            Debug.Log($"{BasicClasses[id].name}");
+        }
     }
 }

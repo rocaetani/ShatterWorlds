@@ -5,7 +5,7 @@ namespace outBattle
     [Serializable]
     public class Character
     {
-        public int id;
+        public int characterId;
 
         public Player player;
 
@@ -32,10 +32,10 @@ namespace outBattle
             this.attributes = attributes;
         }
 
-        public Character(int id, Player player, string name, string race, BasicClass basicClass, int level,
+        public Character(int characterId, Player player, string name, string race, BasicClass basicClass, int level,
             int experiencePoints, Attributes attributes)
         {
-            this.id = id;
+            this.characterId = characterId;
             this.player = player;
             this.name = name;
             this.race = race;

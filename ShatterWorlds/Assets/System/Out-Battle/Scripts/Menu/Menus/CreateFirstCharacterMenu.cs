@@ -30,10 +30,7 @@ public class CreateFirstCharacterMenu : MenuTemplate
 
     public void CreateCharacter(BasicClass basicClass)
     {
-        var character = new Character(OutBattleManager.instance.Player, "ciclano", "Humano", basicClass, 1, 0, CreateBasicAttributes());
-        string json = JsonUtility.ToJson(character);
-
-
+        Character character = new Character(OutBattleManager.instance.Player, "ciclano", "Humano", basicClass, 1, 0, CreateBasicAttributes());
         SendCharacterToServer(character);
     }
 
@@ -44,7 +41,8 @@ public class CreateFirstCharacterMenu : MenuTemplate
 
     public void AfterCharacterCreation(string json)
     {
-        var character = JsonUtility.FromJson<Character>(json);
+        Character character = JsonUtility.FromJson<Character>(json);
+        OutBattleManager.instance.Characters.Add(character);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }
 

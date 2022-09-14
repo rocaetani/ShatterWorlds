@@ -21,9 +21,10 @@ public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SequenceCharacterId")
     @SequenceGenerator(name = "SequenceCharacterId", sequenceName = "CHARACTER_SEQ", allocationSize = 1)
-    private Long id;
+    private Long characterId;
 
     @ManyToOne
+    @JoinColumn( name = "player_owner_id" )
     private Player playerOwner;
 
     private String name;
@@ -31,6 +32,7 @@ public class Character {
     private String race;
 
     @ManyToOne
+    @JoinColumn( name = "basic_class_id" )
     private BasicClass basicClass;
 
     private int level;

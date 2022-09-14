@@ -7,21 +7,30 @@ using UnityEngine.UI;
 
 public class CharacterComponent : MonoBehaviour
 {
+    [HideInInspector]
+    public Character Character;
+
     public Text Name;
     public Text BasicClass;
     public Text Race;
     public Text Level;
     public Image CharacterImage;
+    public Image Card;
 
     private RectTransform _rectTransform;
 
+    [HideInInspector]
+    public bool IsChosen { get; private set; }
+
     public void Awake()
     {
+        IsChosen = false;
         _rectTransform = GetComponent<RectTransform>();
     }
 
     public void SetComponent(Character character, Vector2 position)
     {
+        Character = character;
         Name.text = character.name;
         BasicClass.text = character.basicClass.name;
         Race.text = character.race;
@@ -32,12 +41,26 @@ public class CharacterComponent : MonoBehaviour
 
     public void OnClick()
     {
-        
+
+        if (!IsChosen)
+        {
+            Highlight();
+            IsChosen = true;
+        }
+        else
+        {
+            Unhighlight();
+            IsChosen = false;
+        }
     }
 
-    public void Highlight()
+    private void Highlight()
     {
-        
+        Card.color = Color.green;
+    }
+    private void Unhighlight()
+    {
+        Card.color = Color.white;
     }
 
 }

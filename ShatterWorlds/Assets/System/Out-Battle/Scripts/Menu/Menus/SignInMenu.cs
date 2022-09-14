@@ -12,7 +12,7 @@ public class SignInMenu : MenuTemplate
     public InputField Password;
     public InputField ConfirmPassword;
     public Button SignInButton;
-    
+
     private bool _usernameIsValid;
 
     private void Start()
@@ -36,7 +36,7 @@ public class SignInMenu : MenuTemplate
     {
         if (_usernameIsValid)
         {
-            if (!String.IsNullOrWhiteSpace(Password.text))
+            if (!string.IsNullOrWhiteSpace(Password.text))
             {
                 if (IsPasswordConfirmed())
                 {
@@ -50,32 +50,32 @@ public class SignInMenu : MenuTemplate
 
     public void SignIn()
     {
-        Player player = new Player(Username.text, Password.text);
+        var player = new Player(Username.text, Password.text);
         APIManager.PlayerAPIHandler.PostPlayer(player, AfterSignInResponse);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Loading);
     }
 
-    public void AfterSignInResponse(String json)
+    public void AfterSignInResponse(string json)
     {
         OutBattleManager.instance.Player = JsonUtility.FromJson<Player>(json);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.CreateFirstCharacter);
-        Debug.Log(OutBattleManager.instance.Player.id);
+        Debug.Log(OutBattleManager.instance.Player.playerId);
 
     }
 
     public void CheckValidateUsername()
     {
-        if (!String.IsNullOrWhiteSpace(Username.text))
+        if (!string.IsNullOrWhiteSpace(Username.text))
         {
             ChangeInputColor(Username, Color.yellow); //TODO change this to loading animation
             APIManager.PlayerAPIHandler.GetUsernameValidation(Username.text, UseUsernameValidation);
         }
     }
 
-    public void UseUsernameValidation(String json)
+    public void UseUsernameValidation(string json)
     {
         Debug.Log(json);
-        bool isValid = Boolean.Parse(json);
+        bool isValid = bool.Parse(json);
         if (isValid)
         {
             ChangeInputColor(Username, Color.green); //TODO change this to green on the box
@@ -83,14 +83,14 @@ public class SignInMenu : MenuTemplate
         }
         else
         {
-            ChangeInputColor(Username, Color.red);  //TODO change this to red on the box 
+            ChangeInputColor(Username, Color.red); //TODO change this to red on the box 
             _usernameIsValid = false;
         }
     }
 
     public void ChangeInputColor(InputField field, Color color)
     {
-        ColorBlock block = field.colors;
+        var block = field.colors;
         block.normalColor = color;
         field.colors = block;
     }

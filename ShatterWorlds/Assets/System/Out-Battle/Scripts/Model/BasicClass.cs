@@ -3,13 +3,13 @@ using System;
 [Serializable]
 public class BasicClass
 {
-    public int id;
+    public int basicClassId;
 
     public string name;
 
-    public BasicClass(int id, string name)
+    public BasicClass(int basicClassId, string name)
     {
-        this.id = id;
+        this.basicClassId = basicClassId;
         this.name = name;
     }
 }

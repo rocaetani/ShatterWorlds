@@ -5,9 +5,9 @@
         public static void Main(string[] args)
         {
             DatabaseConnection db = new DatabaseConnection();
-            //MessageConfigRepository mcrep = new MessageConfigRepository();
-            //MessageConfig mc = mcrep.Get(1).Result;
-            
+
+            //DatabaseManager datab = new DatabaseManager();
+                
             
             NetworkManager.Instance.port = 7777;
             NetworkManager.Instance.maxClientCount = 10;

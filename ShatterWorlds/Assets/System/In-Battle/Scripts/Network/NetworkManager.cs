@@ -5,17 +5,18 @@ using RiptideNetworking;
 using UnityEngine;
 
 
-public enum ClientToServerId : ushort
-{
-    name = 1,
-}
+
 
 public class NetworkManager : MonoBehaviour
 {
+
     private static NetworkManager _singleton;
     public static NetworkManager Singleton
     {
-        get => _singleton;
+        get
+        {
+            return _singleton;
+        }
         private set
         {
             if (_singleton == null)
@@ -27,7 +28,9 @@ public class NetworkManager : MonoBehaviour
             }
         }
     }
-    
+
+    private static BattleManager _battleManager;
+
     public Client Client { get; private set; }
 
     [SerializeField] private string ip;
@@ -44,11 +47,11 @@ public class NetworkManager : MonoBehaviour
         Client.ConnectionFailed += FailToConnect;
     }
 
-    private void Start()
+    public void SignBattleManager(BattleManager battleManager)
     {
-        
+        _battleManager = battleManager;
     }
-    
+
     private void FixedUpdate()
     {
         Client.Tick();
@@ -66,14 +69,14 @@ public class NetworkManager : MonoBehaviour
 
     private void DidConnect(object sender, EventArgs e)
     {
-        BattleManager.instance.SendLoginInfoToServer();
+        _battleManager.SendLoginInfoToServer();
     }
     private void FailToConnect(object sender, EventArgs e)
     {
-        ErrorLogger.instance.LogError("Fail to connect on server",this);
+        ErrorLogger.instance.LogError("Fail to connect on server", this);
         ReturnToMainMenu();
     }
-    
+
     private void DidDisconnect(object sender, EventArgs e)
     {
         GameLogger.instance.Log("Disconnected...", this);
@@ -83,8 +86,8 @@ public class NetworkManager : MonoBehaviour
     private void ReturnToMainMenu()
     {
         SceneTransactional.instance.InToOutTransaction.comebackMenu = MenuController.MenuItemCategory.Main;
-        SceneTransactional.instance.InToOutTransaction.Player = BattleManager.instance.Player;
+        SceneTransactional.instance.InToOutTransaction.Player = _battleManager.Player;
         SceneTransactional.instance.ChangeToMainMenu();
     }
-    
+
 }

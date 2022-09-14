@@ -7,12 +7,12 @@ namespace outBattle
     [Serializable]
     public class Attributes
     {
-        public int id;
+        public int attributesId;
 
         public int strength;
 
         public int technique;
- 
+
         public int dexterity;
 
         public int velocity;
@@ -25,9 +25,9 @@ namespace outBattle
 
         public int will;
 
-        public Attributes(int id, int strength, int technique, int dexterity, int velocity, int intelligence, int knowledge, int spirituality, int will)
+        public Attributes(int attributesId, int strength, int technique, int dexterity, int velocity, int intelligence, int knowledge, int spirituality, int will)
         {
-            this.id = id;
+            this.attributesId = attributesId;
             this.strength = strength;
             this.technique = technique;
             this.dexterity = dexterity;

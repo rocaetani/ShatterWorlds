@@ -25,7 +25,7 @@ public class CreateCharacterMenu : MenuTemplate
 
     public void Save()
     {
-        var character = CreateCharacter();
+        Character character = CreateCharacter();
         string json = JsonUtility.ToJson(character);
         SendCharacterToServer(character);
     }
@@ -33,9 +33,10 @@ public class CreateCharacterMenu : MenuTemplate
     private void SetBasicClass()
     {
         List<string> classesNames = OutBattleManager.instance.BasicClassManager.ReturnClassesNames();
+        BasicClass.options.Clear();
         foreach (string className in classesNames)
         {
-            var od = new Dropdown.OptionData
+            Dropdown.OptionData od = new Dropdown.OptionData
             {
                 text = className
             };
@@ -51,7 +52,8 @@ public class CreateCharacterMenu : MenuTemplate
 
     public void AfterCharacterCreation(string json)
     {
-        var character = JsonUtility.FromJson<Character>(json);
+        Character character = JsonUtility.FromJson<Character>(json);
+        OutBattleManager.instance.Characters.Add(character);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }
 

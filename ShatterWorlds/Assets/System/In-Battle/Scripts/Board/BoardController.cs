@@ -19,15 +19,15 @@ public class BoardController : MonoBehaviour
 
         InitBoardStructure(BoardModel.BoardSize);
     }
-    
+
     public void InitBoardStructure(int boardSize)
     {
         BoardStructure = new Dictionary<Vector2, SquareController>();
-        for (int i = 0; i < boardSize-1; i++)
+        for (int i = 0; i < boardSize - 1; i++)
         {
-            for (int j = 0; j < boardSize-1; j++)
+            for (int j = 0; j < boardSize - 1; j++)
             {
-                Vector2 squarePosition = new Vector2(i,j);
+                Vector2 squarePosition = new Vector2(i, j);
                 SquareController squareController = InstantiateSquare(i, j);
                 BoardStructure.Add(squarePosition, squareController);
             }
@@ -42,8 +42,4 @@ public class BoardController : MonoBehaviour
         return squareController;
     }
 
-    private void Awake()
-    {
-        BoardNetwork.BoardController = this;
-    }
 }

@@ -16,7 +16,7 @@ public class Attributes {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SequenceAttributesId")
     @SequenceGenerator(name = "SequenceAttributesId", sequenceName = "ATTRIBUTES_SEQ", allocationSize = 1)
-    private Long id;
+    private Long attributesId;
 
     private int strength;
 

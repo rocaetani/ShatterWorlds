@@ -11,9 +11,9 @@ namespace outBattle
     {
         //Attributes must be like JAVA
 
-        public int id;
-        public String username;
-        public String password;
+        public int playerId;
+        public string username;
+        public string password;
 
         public Player(string username, string password)
         {
@@ -21,12 +21,11 @@ namespace outBattle
             this.password = password;
         }
 
-        public Player(int id, string username, string password)
+        public Player(int playerId, string username, string password)
         {
-            this.id = id;
+            this.playerId = playerId;
             this.username = username;
             this.password = password;
         }
     }
 }
-

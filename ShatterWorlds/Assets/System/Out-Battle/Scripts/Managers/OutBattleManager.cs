@@ -31,9 +31,11 @@ public class OutBattleManager : MonoBehaviour
         BasicClassManager = new BasicClassManager();
     }
 
+
+
     public void LoadPlayerData()
     {
-        var player = SceneTransactional.instance.InToOutTransaction.Player;
+        Player player = SceneTransactional.instance.InToOutTransaction.Player;
         LogIn(player.username, player.password);
     }
 
@@ -44,11 +46,12 @@ public class OutBattleManager : MonoBehaviour
 
     public void AfterLoginResponse(string json)
     {
-        var loginResponse = JsonUtility.FromJson<LoginResponse>(json);
+        LoginResponse loginResponse = JsonUtility.FromJson<LoginResponse>(json);
         Player = loginResponse.player;
         Characters = loginResponse.characters;
 
-        BasicClassManager.PopulateBasicClasses(loginResponse.basicClasses);
+        //TODO - Erase this in the call as well
+        //BasicClassManager.PopulateBasicClasses(loginResponse.basicClasses);
 
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }
