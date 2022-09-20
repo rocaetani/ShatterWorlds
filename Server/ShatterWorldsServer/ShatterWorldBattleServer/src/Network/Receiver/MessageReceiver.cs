@@ -14,7 +14,7 @@ namespace ShatterWorldBattleServer.Handlers
             
         }
         
-        [MessageHandler((ushort)ClientToServerId.chosenChar acters)]
+        [MessageHandler((ushort)ClientToServerId.chosenCharacters)]
         private static void ChosenCharacters(ushort fromClientId, Message message)
         {
             Console.WriteLine($"ChosenCharacters received from client: {fromClientId}");

@@ -245,12 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7f44d1c8a7f734d9b1ccc450d261f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoardController: {fileID: 1546780741}
-  Player:
-    id: 0
-    username: 
-    password: 
-  Characters: []
 --- !u!4 &898773339
 Transform:
   m_ObjectHideFlags: 0
@@ -424,7 +418,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1546780742}
-  - component: {fileID: 1546780741}
   m_Layer: 0
   m_Name: BoardController
   m_TagString: Untagged
@@ -432,18 +425,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1546780741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546780740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c982cec7169730245bdc05b8e76ada9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1546780742
 Transform:
   m_ObjectHideFlags: 0

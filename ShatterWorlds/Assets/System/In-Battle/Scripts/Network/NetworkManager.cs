@@ -4,9 +4,6 @@ using RiptideNetworking.Utils;
 using RiptideNetworking;
 using UnityEngine;
 
-
-
-
 public class NetworkManager : MonoBehaviour
 {
 
@@ -29,7 +26,9 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    private static BattleManager _battleManager;
+    public Action OnDisconnect;
+    public Action OnFailToConnect;
+    public Action OnConnect;
 
     public Client Client { get; private set; }
 
@@ -47,11 +46,6 @@ public class NetworkManager : MonoBehaviour
         Client.ConnectionFailed += FailToConnect;
     }
 
-    public void SignBattleManager(BattleManager battleManager)
-    {
-        _battleManager = battleManager;
-    }
-
     private void FixedUpdate()
     {
         Client.Tick();
@@ -62,32 +56,28 @@ public class NetworkManager : MonoBehaviour
         Client.Disconnect();
     }
 
-    public void Connect()
+    public void Connect(Action onConnect, Action onDisconnect, Action onFailToConnect)
     {
+        OnConnect = onConnect;
+        OnDisconnect = onDisconnect;
+        OnFailToConnect = onFailToConnect;
         Client.Connect($"{ip}:{port}");
     }
 
     private void DidConnect(object sender, EventArgs e)
     {
-        _battleManager.SendLoginInfoToServer();
+        OnConnect?.Invoke();
     }
     private void FailToConnect(object sender, EventArgs e)
     {
         ErrorLogger.instance.LogError("Fail to connect on server", this);
-        ReturnToMainMenu();
+        OnFailToConnect?.Invoke();
     }
 
     private void DidDisconnect(object sender, EventArgs e)
     {
         GameLogger.instance.Log("Disconnected...", this);
-        ReturnToMainMenu();
-    }
-
-    private void ReturnToMainMenu()
-    {
-        SceneTransactional.instance.InToOutTransaction.comebackMenu = MenuController.MenuItemCategory.Main;
-        SceneTransactional.instance.InToOutTransaction.Player = _battleManager.Player;
-        SceneTransactional.instance.ChangeToMainMenu();
+        OnDisconnect?.Invoke();
     }
 
 }

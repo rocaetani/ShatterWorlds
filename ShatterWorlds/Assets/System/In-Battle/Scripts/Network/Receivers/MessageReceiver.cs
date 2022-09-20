@@ -23,4 +23,13 @@ public static class MessageReceiver
     {
         ReceiveSeedAction?.Invoke(message.GetInt());
     }
+
+
+    public static Action<bool> ReceiveCharacterValidAction;
+
+    [MessageHandler((ushort)ServerToClientId.charactersValid)]
+    public static void ReceiveCharactersValid(Message message)
+    {
+        ReceiveCharacterValidAction?.Invoke(message.GetBool());
+    }
 }

@@ -7,15 +7,6 @@ namespace ShatterWorldBattleServer
 {
     public class BattlesManager
     {
-        // Explicit static constructor to tell C# compiler
-        // not to mark type as beforefieldinit
-        /*
-        static BattlesManager() {}
-
-        private BattlesManager() {}
-
-        public static BattlesManager Instance { get; } = new BattlesManager();
-        */
 
         private readonly Dictionary<ushort, Battle> BattlesList = new Dictionary<ushort, Battle>();
 

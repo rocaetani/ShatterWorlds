@@ -6,72 +6,52 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-
-    //public static BattleManager instance;
-
-    public BoardController BoardController;
-
-    private int _battleSeed;
-
-    private System.Random _battleRandom;
+    private BattleData _battleData;
 
     private BattleNetwork _battleNetwork;
 
-    public Player Player;
-
-    public List<Character> Characters;
-
+    private CharacterManager _characterManager;
 
     private void Start()
     {
         _battleNetwork = new BattleNetwork(this);
-        Player = SceneTransactional.instance.OutToInTransaction.Player;
-        Characters = SceneTransactional.instance.OutToInTransaction.Characters;
     }
 
-    public void StartBattle(int seed)
+    public void InitBattle(int seed)
     {
-
-    }
-
-    public void SetBattleSeed(int seed)
-    {
-        if (_battleRandom != null)
-        {
-            ErrorLogger.instance.LogError("Seed already populated", this);
-        }
-        else
-        {
-            _battleSeed = seed;
-            _battleRandom = new System.Random(_battleSeed);
-        }
-    }
-
-    public int GenerateRandInt(int min, int max)
-    {
-        return _battleRandom.Next(min, max);
-    }
-
-    public void InitBoardController()
-    {
-        BoardController = gameObject.AddComponent<BoardController>();
-        BoardController.InitBoard(GenerateRandInt(Macros.MIN_BOARD_SIZE, Macros.MAX_BOARD_SIZE));
-    }
-
-    public void SendLoginInfoToServer()
-    {
-        _battleNetwork.LoginOnServer(Player.playerId, Player.username, Player.password);
+        _battleData = new BattleData(SceneTransactional.instance.OutToInTransaction.Player, seed);
     }
 
     public void SendChosenCharactersToServer()
     {
-        _battleNetwork.SendChosenCharacters(Player.playerId, GetCharacterIds(Characters));
+        List<Character> characters = SceneTransactional.instance.OutToInTransaction.Characters;
+        _battleNetwork.SendChosenCharacters(_battleData.Player.playerId, GetCharacterIds(characters));
     }
 
-    public List<int> GetCharacterIds(List<Character> characters)
+    public void InitCharacters()
     {
-        List<int> result = characters.Select((character) => character.characterId).ToList();
-        return result;
+        List<Character> characters = SceneTransactional.instance.OutToInTransaction.Characters;
+        _characterManager = new CharacterManager(characters, new Vector2Int(0, 0), CreateCharacterBucket());
     }
+
+    private List<int> GetCharacterIds(List<Character> characters)
+    {
+        return characters.Select((character) => character.characterId).ToList();
+    }
+
+    public void EndBattle()
+    {
+        SceneTransactional.instance.ChangeToMainMenu(_battleData.Player);
+    }
+
+    private GameObject CreateCharacterBucket()
+    {
+        GameObject characterBucket = new GameObject();
+        characterBucket.transform.parent = gameObject.transform;
+        characterBucket.transform.name = "Character Bucket";
+        return characterBucket;
+    }
+
+
 
 }

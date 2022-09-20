@@ -10321,7 +10321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player:
-    id: 0
+    playerId: 0
     username: 
     password: 
   Characters: []

@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransactional : MonoBehaviour
 {
-    
+
     public static SceneTransactional instance;
-    
+
     public OutToInTransaction OutToInTransaction;
 
     public InToOutTransaction InToOutTransaction;
-    
-    void Awake()
+
+    private void Awake()
     {
-        if(SceneTransactional.instance != null)
+        if (instance != null)
         {
             Destroy(this);
             Destroy(gameObject);
@@ -32,14 +32,14 @@ public class SceneTransactional : MonoBehaviour
     {
         OutToInTransaction.Characters = characters;
         OutToInTransaction.Player = player;
-        SceneManager.LoadScene("BattleScene"); 
+        SceneManager.LoadScene("BattleScene");
     }
-    
-    public void ChangeToMainMenu()
+
+    public void ChangeToMainMenu(Player player)
     {
+        InToOutTransaction.Player = player;
         InToOutTransaction.comebackMenu = MenuController.MenuItemCategory.Main;
         SceneManager.LoadScene("APITest");
-        
     }
 
 
