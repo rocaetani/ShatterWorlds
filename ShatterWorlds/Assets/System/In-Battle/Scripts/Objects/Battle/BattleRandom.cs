@@ -14,4 +14,5 @@ public class BattleRandom
     {
         return _randomizer.Next(min, max);
     }
+    
 }

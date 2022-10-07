@@ -8,9 +8,12 @@ namespace InBattle
     {
         public outBattle.Character Character;
 
-        public CharacterData(outBattle.Character character)
+        public Vector2Int CurrentPosition;
+
+        public CharacterData(outBattle.Character character, Vector2Int currentPosition)
         {
             Character = character;
+            CurrentPosition = currentPosition;
         }
     }
 }

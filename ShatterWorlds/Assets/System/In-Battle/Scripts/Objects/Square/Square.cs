@@ -16,4 +16,14 @@ public class Square
         squareView.RenameSquare(x, z);
     }
 
+    public Attachable GetObjectAttached()
+    {
+        return SquareData.ObjectAttached;
+    }
+
+    public void AttachObject(Attachable objectAttachable)
+    {
+        SquareData.ObjectAttached = objectAttachable;
+    }
+
 }

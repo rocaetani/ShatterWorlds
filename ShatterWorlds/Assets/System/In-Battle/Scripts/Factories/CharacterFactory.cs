@@ -4,7 +4,7 @@ public class CharacterFactory
 {
     public static Character SpawnCharacter(outBattle.Character character, Vector2Int position, GameObject parent)
     {
-        CharacterData characterData = SpawnCharacterData(character);
+        CharacterData characterData = SpawnCharacterData(character, position);
 
         CharacterView characterView = SpawnCharacterGameObject(position, parent);
 
@@ -19,8 +19,8 @@ public class CharacterFactory
         return characterView;
     }
 
-    private static CharacterData SpawnCharacterData(outBattle.Character character)
+    private static CharacterData SpawnCharacterData(outBattle.Character character, Vector2Int position)
     {
-        return new CharacterData(character);
+        return new CharacterData(character, position);
     }
 }

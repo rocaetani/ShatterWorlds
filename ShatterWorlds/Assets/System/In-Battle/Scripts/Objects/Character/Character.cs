@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace InBattle
 {
-    public class Character
+    public class Character : Attachable
     {
         private CharacterData _characterData;
         private CharacterView _characterView;
