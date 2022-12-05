@@ -14,7 +14,7 @@ public abstract class Agent
 
     public Agent(GameObject parent, int turnSpeed, AgentType type)
     {
-        _agentView = AgentFactory.SpawnTurnView(parent);
+        _agentView = AgentFactory.SpawnAgentView(parent);
         //_agentView.SetupPosition();
         _turnPoints = 0;
         _turnSpeed = turnSpeed;

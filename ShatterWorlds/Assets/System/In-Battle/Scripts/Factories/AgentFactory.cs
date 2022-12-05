@@ -1,12 +1,12 @@
 using UnityEngine;
 public class AgentFactory
 {
-    public static AgentView SpawnTurnView(GameObject parent)
+    private static readonly GameObject agentPrefab = Resources.Load<GameObject>("InBattle/Prefabs/AgentView");
+    public static AgentView SpawnAgentView(GameObject parent)
     {
         // TODO Do a Agent View with the bar
-        GameObject turnPrefab = Resources.Load<GameObject>("InBattle/Prefabs/AgentView");
-        GameObject turnSpawned = Object.Instantiate(turnPrefab, parent.transform.position, Quaternion.identity, parent.transform);
-        AgentView agentView = turnSpawned.GetComponent<AgentView>();
+        GameObject agentSpawned = Object.Instantiate(agentPrefab, parent.transform.position, Quaternion.identity, parent.transform);
+        AgentView agentView = agentSpawned.GetComponent<AgentView>();
         return agentView;
     }
 
