@@ -14,6 +14,9 @@ namespace ShatterWorldBattleServer
         
         public Board Board;
 
+        public TurnManager TurnManager;
+        
+        
         
         public Battle(Client client)
         {
@@ -51,8 +54,10 @@ namespace ShatterWorldBattleServer
                 Console.WriteLine($"Client {clientId}: Not found inside Battle");
                 //TODO - Throw Error
             }
-            
-            client!.Characters = characters;
+            else
+            {
+                client.Characters = characters; 
+            }
         }
 
 

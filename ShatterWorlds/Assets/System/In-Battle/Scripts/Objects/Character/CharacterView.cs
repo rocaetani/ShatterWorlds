@@ -6,15 +6,22 @@ namespace InBattle
 {
     public class CharacterView : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public MeshRenderer Mesh;
 
+
+        private void Start()
+        {
+            //Material = gameObject.GetComponent<Material>();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void MarkRed()
         {
+            Mesh.material.color = Color.red;
+        }
+
+        public void MarkGreen()
+        {
+            Mesh.material.color = Color.green;
 
         }
     }

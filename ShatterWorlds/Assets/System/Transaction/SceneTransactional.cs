@@ -28,7 +28,7 @@ public class SceneTransactional : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void ChangeToBattleScene(Player player, List<Character> characters)
+    public void ChangeToBattleScene(Player player, List<outBattle.Character> characters)
     {
         OutToInTransaction.Characters = characters;
         OutToInTransaction.Player = player;

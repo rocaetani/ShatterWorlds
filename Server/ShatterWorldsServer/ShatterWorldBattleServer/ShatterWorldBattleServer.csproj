@@ -11,7 +11,7 @@
     <AssemblyName>ShatterWorldBattleServer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,6 +41,7 @@
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
       <Private>True</Private>
@@ -106,29 +107,30 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Database\DatabaseConnection.cs" />
-    <Compile Include="src\Database\Entity\Attributes.cs" />
-    <Compile Include="src\Database\Entity\BasicClass.cs" />
-    <Compile Include="src\Database\Entity\Character.cs" />
-    <Compile Include="src\Database\Entity\Player.cs" />
     <Compile Include="src\Database\Repository\CharacterRepository.cs" />
     <Compile Include="src\Database\Repository\PlayerRepository.cs" />
     <Compile Include="src\Deprecated\MessageConfig.cs" />
     <Compile Include="src\Deprecated\MessageConfigRepository.cs" />
     <Compile Include="src\Helpers\Macros.cs" />
-    <Compile Include="src\Managers\BattlesManager.cs" />
+    <Compile Include="src\Managers\AgentManager.cs" />
+    <Compile Include="src\Managers\BattleManager.cs" />
+    <Compile Include="src\Managers\GamesManager.cs" />
     <Compile Include="src\Managers\DatabaseManager.cs" />
     <Compile Include="src\Managers\ServerManager.cs" />
+    <Compile Include="src\Managers\TurnManager.cs" />
     <Compile Include="src\Model\Battle\Battle.cs" />
     <Compile Include="src\Model\Battle\Board\Board.cs" />
     <Compile Include="src\Model\Battle\Board\BoardSquare.cs" />
+    <Compile Include="src\Model\Character\Attributes.cs" />
+    <Compile Include="src\Model\Character\BasicClass.cs" />
+    <Compile Include="src\Model\Character\Character.cs" />
     <Compile Include="src\Model\Client\Client.cs" />
+    <Compile Include="src\Model\Player\Player.cs" />
+    <Compile Include="src\Model\Turn\Agent\Agent.cs" />
     <Compile Include="src\Network\Receiver\ClientToServerId.cs" />
     <Compile Include="src\Network\Receiver\MessageReceiver.cs" />
     <Compile Include="src\Network\Sender\MessageSender.cs" />
     <Compile Include="src\Network\NetworkManager.cs" />
-    <Compile Include="src\Network\Sender\MessagesTypes\CharactersValidMessage.cs" />
-    <Compile Include="src\Network\Sender\MessagesTypes\SeedMessage.cs" />
-    <Compile Include="src\Network\Sender\MessagesTypes\Template\MessagePreparer.cs" />
     <Compile Include="src\Network\Sender\ServerToClientId.cs" />
     <Compile Include="src\Program.cs" />
   </ItemGroup>

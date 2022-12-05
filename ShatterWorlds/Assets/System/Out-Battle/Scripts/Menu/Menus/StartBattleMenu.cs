@@ -26,18 +26,17 @@ public class StartBattleMenu : MenuTemplate
     {
         CharacterComponents = new Dictionary<int, CharacterComponent>();
         int lineCounter = 0;
-        foreach (var character in characters)
+        foreach (Character character in characters)
         {
-            var characterComponentGameObject = Instantiate(
+            GameObject characterComponentGameObject = Instantiate(
                 _characterComponent,
                 new Vector3(0, 0, 0),
                 Quaternion.identity,
                 gameObject.transform);
 
-            var characterComponent = characterComponentGameObject.GetComponent<CharacterComponent>();
+            CharacterComponent characterComponent = characterComponentGameObject.GetComponent<CharacterComponent>();
             CharacterComponents.Add(character.characterId, characterComponent);
             characterComponent.SetComponent(character, _componentPosition);
-            Debug.Log(_componentPosition);
             _componentPosition += _nextIteration;
             if (lineCounter == 3)
             {
@@ -54,7 +53,7 @@ public class StartBattleMenu : MenuTemplate
     private void InitComponentsPositionsConfig()
     {
         _initialComponentPosition = new Vector2(-Screen.width / 2, Screen.height / 2);
-        var componentSize = _characterComponent.GetComponent<RectTransform>().sizeDelta;
+        Vector2 componentSize = _characterComponent.GetComponent<RectTransform>().sizeDelta;
         _initialComponentPosition += new Vector2(componentSize.x / 2, -componentSize.y / 2);
         _nextIteration = new Vector2(componentSize.x, 0);
         _nextLineIteration = new Vector2(0, -componentSize.y);
@@ -69,7 +68,7 @@ public class StartBattleMenu : MenuTemplate
     public List<Character> GetChosenList()
     {
         List<Character> chosenList = new List<Character>();
-        foreach (var characterComponent in CharacterComponents.Values)
+        foreach (CharacterComponent characterComponent in CharacterComponents.Values)
         {
             if (characterComponent.IsChosen)
             {

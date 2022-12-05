@@ -35,7 +35,7 @@ namespace ShatterWorldBattleServer
 
         public void FixedUpdate()
         {
-            Server.Tick();
+            Server.Tick();  
         }
 
         

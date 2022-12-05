@@ -25,7 +25,7 @@ public class CreateCharacterMenu : MenuTemplate
 
     public void Save()
     {
-        Character character = CreateCharacter();
+        outBattle.Character character = CreateCharacter();
         string json = JsonUtility.ToJson(character);
         SendCharacterToServer(character);
     }
@@ -44,7 +44,7 @@ public class CreateCharacterMenu : MenuTemplate
         }
     }
 
-    public void SendCharacterToServer(Character character)
+    public void SendCharacterToServer(outBattle.Character character)
     {
         APIManager.CharacterAPIHandler.PostCharacter(character, AfterCharacterCreation);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Loading);
@@ -52,17 +52,17 @@ public class CreateCharacterMenu : MenuTemplate
 
     public void AfterCharacterCreation(string json)
     {
-        Character character = JsonUtility.FromJson<Character>(json);
+        outBattle.Character character = JsonUtility.FromJson<outBattle.Character>(json);
         OutBattleManager.instance.Characters.Add(character);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }
 
-    private Character CreateCharacter()
+    private outBattle.Character CreateCharacter()
     {
         Debug.Log($"Race: {Race.captionText.text}");
         Debug.Log($"Class: {BasicClass.value + 1}");
 
-        return new Character(OutBattleManager.instance.Player, Name.text, Race.captionText.text, OutBattleManager.instance.BasicClassManager.GetBasicClass(BasicClass.value + 1), 1, 0, CreateAttributes());
+        return new outBattle.Character(OutBattleManager.instance.Player, Name.text, Race.captionText.text, OutBattleManager.instance.BasicClassManager.GetBasicClass(BasicClass.value + 1), 1, 0, CreateAttributes());
 
     }
 

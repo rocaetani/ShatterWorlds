@@ -2,13 +2,13 @@ using InBattle;
 using UnityEngine;
 public class CharacterFactory
 {
-    public static Character SpawnCharacter(outBattle.Character character, Vector2Int position, GameObject parent)
+    public static InBattle.Character SpawnCharacter(outBattle.Character character, Vector2Int position, GameObject parent)
     {
         CharacterData characterData = SpawnCharacterData(character, position);
 
         CharacterView characterView = SpawnCharacterGameObject(position, parent);
 
-        return new Character(characterData, characterView);
+        return new InBattle.Character(characterData, characterView);
     }
 
     private static CharacterView SpawnCharacterGameObject(Vector2Int position, GameObject parent)

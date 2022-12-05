@@ -16,12 +16,12 @@ public class CharacterAPIHandler : MonoBehaviour
         _pathURL = "/character/";
     }
     
-    public void PostCharacter(Character character, Action<String> actionCallback)
+    public void PostCharacter(outBattle.Character character, Action<String> actionCallback)
     {
         StartCoroutine(PostCharacterCoroutine(character, actionCallback));
     }
 
-    private IEnumerator PostCharacterCoroutine(Character character, Action<String> actionCallback)
+    private IEnumerator PostCharacterCoroutine(outBattle.Character character, Action<String> actionCallback)
     {
         String json = JsonUtility.ToJson(character);
         

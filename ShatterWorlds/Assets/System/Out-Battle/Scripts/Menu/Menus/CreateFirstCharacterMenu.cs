@@ -30,18 +30,18 @@ public class CreateFirstCharacterMenu : MenuTemplate
 
     public void CreateCharacter(BasicClass basicClass)
     {
-        Character character = new Character(OutBattleManager.instance.Player, "ciclano", "Humano", basicClass, 1, 0, CreateBasicAttributes());
+        outBattle.Character character = new outBattle.Character(OutBattleManager.instance.Player, "ciclano", "Humano", basicClass, 1, 0, CreateBasicAttributes());
         SendCharacterToServer(character);
     }
 
-    public void SendCharacterToServer(Character character)
+    public void SendCharacterToServer(outBattle.Character character)
     {
         APIManager.CharacterAPIHandler.PostCharacter(character, AfterCharacterCreation);
     }
 
     public void AfterCharacterCreation(string json)
     {
-        Character character = JsonUtility.FromJson<Character>(json);
+        outBattle.Character character = JsonUtility.FromJson<outBattle.Character>(json);
         OutBattleManager.instance.Characters.Add(character);
         MenuController.instance.ChangeMenu(MenuController.MenuItemCategory.Main);
     }

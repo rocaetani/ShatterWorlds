@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class CharacterComponent : MonoBehaviour
 {
     [HideInInspector]
-    public Character Character;
+    public outBattle.Character Character;
 
     public Text Name;
     public Text BasicClass;
@@ -28,7 +28,7 @@ public class CharacterComponent : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void SetComponent(Character character, Vector2 position)
+    public void SetComponent(outBattle.Character character, Vector2 position)
     {
         Character = character;
         Name.text = character.name;

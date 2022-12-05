@@ -17,16 +17,19 @@ namespace InBattle
 
             MessageReceiver.ReceiveSeedAction += ReceiveSeed;
             MessageReceiver.ReceiveCharacterValidAction += ReceiveCharacterIsValid;
+            MessageReceiver.ReceiveNextToPlayAction += ReceiveNextToPlay;
 
             NetworkManager.Singleton.Connect(StartBattle, EndBattle, FailToConnect);
         }
+
+
 
         //HANDLE NETWORK STUFF
 
         public void StartBattle()
         {
             Player player = SceneTransactional.instance.OutToInTransaction.Player;
-            LoginOnServer(player.playerId, player.username, player.password);
+            SendLoginInfo(player.playerId, player.username, player.password);
         }
 
         public void FailToConnect()
@@ -41,7 +44,7 @@ namespace InBattle
         }
 
         //SENDERS
-        public void LoginOnServer(int playerId, string username, string password)
+        public void SendLoginInfo(int playerId, string username, string password)
         {
             MessageSender.SendLoginInfo(playerId, username, password);
         }
@@ -49,6 +52,16 @@ namespace InBattle
         public void SendChosenCharacters(int playerId, List<int> chosenCharacters)
         {
             MessageSender.SendChosenCharacters(playerId, chosenCharacters);
+        }
+
+        public void SendFirstTurn()
+        {
+            MessageSender.SendFirstTurn();
+        }
+
+        public void SendEndTurn(int playerId, int characterId)
+        {
+            MessageSender.SendEndTurn(playerId, characterId);
         }
 
         //RECEIVERS
@@ -63,8 +76,7 @@ namespace InBattle
             if (isValid)
             {
                 //ErrorLogger.instance.LogError("Still on TODO", this);
-                _battleManager.InitCharacters();
-
+                _battleManager.AfterValidateCharacters();
             }
             else
             {
@@ -72,7 +84,9 @@ namespace InBattle
             }
         }
 
-
-
+        public void ReceiveNextToPlay(int agentId, int agentType)
+        {
+            _battleManager.ReceiveNextToPlay(agentId, agentType);
+        }
     }
 }

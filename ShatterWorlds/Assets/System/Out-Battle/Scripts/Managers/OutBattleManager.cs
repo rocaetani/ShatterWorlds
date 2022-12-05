@@ -9,7 +9,7 @@ public class OutBattleManager : MonoBehaviour
 {
     public static OutBattleManager instance;
     public Player Player;
-    public List<Character> Characters;
+    public List<outBattle.Character> Characters;
 
     public BasicClassManager BasicClassManager;
 

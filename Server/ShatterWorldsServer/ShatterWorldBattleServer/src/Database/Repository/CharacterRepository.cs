@@ -36,7 +36,7 @@ namespace ShatterWorldBattleServer
                 NpgsqlParameter p = new NpgsqlParameter("characterIds", NpgsqlDbType.Array | NpgsqlDbType.Integer);
                 p.Value = characterIds;
                 cmd.Parameters.Add(p);
-                
+
 
                 await using NpgsqlDataReader reader = await cmd.ExecuteReaderAsync();
 

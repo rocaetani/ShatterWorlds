@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Security.AccessControl;
 using RiptideNetworking;
 using ShatterWorldBattleServer.Handlers;
 
@@ -14,13 +15,13 @@ namespace ShatterWorldBattleServer
 
         private ServerManager()
         {
-            _battlesManager = new BattlesManager();
+            _gamesManager = new GamesManager();
             _databaseManager = new DatabaseManager();
         }
 
         public static ServerManager Instance { get; } = new ServerManager();
 
-        private BattlesManager _battlesManager;
+        private GamesManager _gamesManager;
 
         private DatabaseManager _databaseManager;
 
@@ -33,29 +34,29 @@ namespace ShatterWorldBattleServer
             Client client = new Client(clientId);
             
             //Create Battle
-            _battlesManager.StartSingleBattle(client);
+            _gamesManager.StartSingleBattle(client);
             
             //Send Seed to the client
-            SendBattleSeedToClient(_battlesManager.GetBattleSeed(clientId), clientId);
+            SendBattleSeedToClient(_gamesManager.GetBattleSeed(clientId), clientId);
         }
 
         public void AddCharactersToBattle(ushort clientId, int playerId, int[] charactersId)
         {
             List<Character> characters = _databaseManager.FindCharacters(playerId, charactersId);
             //Add to Battle
-            _battlesManager.AddCharactersToBattle(clientId, characters);
+            _gamesManager.AddCharactersToBattle(clientId, characters);
             //Return Message OK to client;    
-            MessageSender.CharactersValidMessage.Send(clientId, true);
+            MessageSender.SendCharactersValid(clientId, true);
         }
         
         private void SendBattleSeedToClient(int battleSeed, ushort clientId)
         {
-            MessageSender.SeedMessage.Send(clientId, battleSeed);
+            MessageSender.SendSeed(clientId, battleSeed);
         }
 
         public void OnClientDisconnect(object sender, ClientDisconnectedEventArgs e)
         {
-            if (_battlesManager.IsClientFromSingleBattle(e.Id))
+            if (_gamesManager.IsClientFromSingleBattle(e.Id))
             {
                 DisconnectClientFromSingleBattle(e.Id);
             }
@@ -68,14 +69,37 @@ namespace ShatterWorldBattleServer
 
         private void DisconnectClientFromSingleBattle(ushort clientId)
         {
-            _battlesManager.RemoveBattle(clientId);
+            _gamesManager.RemoveBattle(clientId);
         }
 
         
         private void DisconnectClientFromMultiplayerBattle(ushort clientId)
         {
             //TODO - End the Multiple Battle in a way
-            _battlesManager.RemoveBattle(clientId);
+            _gamesManager.RemoveBattle(clientId);
+        }
+        
+        public void CalculateBattleTurn(ushort clientId)
+        {
+            int nextToPlayId = _gamesManager.CalculateBattleTurn(clientId);
+            MessageSender.SendNextToPlay(clientId, nextToPlayId, VerifyAgentType(nextToPlayId));
+        }
+
+        private int VerifyAgentType(int nextToPlayId)
+        {
+            if (nextToPlayId > 0)
+            {
+                return 1; //PlayerAgent
+            }
+            return 2; //AIAgent
+            
+            //TODO - EnemyPlayerAgent
+        }
+        
+        public void EndTurn(ushort clientId, int agentId)
+        {
+            _gamesManager.EndTurn(clientId, agentId);
+            CalculateBattleTurn(clientId);
         }
 
     }

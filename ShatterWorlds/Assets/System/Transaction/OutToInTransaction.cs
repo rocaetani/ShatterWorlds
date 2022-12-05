@@ -7,11 +7,11 @@ public class OutToInTransaction
 {
     public Player Player;
 
-    public List<Character> Characters;
+    public List<outBattle.Character> Characters;
 
     public OutToInTransaction()
     {
-        Characters = new List<Character>();
+        Characters = new List<outBattle.Character>();
     }
 
 }
